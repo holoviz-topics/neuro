@@ -1,2 +1,1 @@
-# BioVIBES
-Bioscientific Visualization and Insight with Browser-Enabled Software
+# Examples of using HoloViz/Bokeh for Bioscience
