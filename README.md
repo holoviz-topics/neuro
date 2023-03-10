@@ -1,1 +1,1 @@
-# Examples of using HoloViz/Bokeh for Bioscience
+# Examples of Interactive Neural Data Science with the HoloViz+Bokeh Stack
