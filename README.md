@@ -1,1 +1,1 @@
-# Examples of neuroscience data visualization with the HoloViz+Bokeh stack
+# Examples of neuroscience data visualization with HoloViz+Bokeh
