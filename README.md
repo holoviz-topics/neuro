@@ -1,1 +1,1 @@
-# Examples of Interactive Neural Data Science with the HoloViz+Bokeh Stack
+# Examples of neuroscience data visualization with the HoloViz+Bokeh stack
