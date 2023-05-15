@@ -1,0 +1,36 @@
+# conda env create --file environment.yml
+# conda env update --file environment.yml
+# conda activate brainhack
+# conda remove -n brainhack
+name: brainhack_hv
+channels:
+  # - pytorch-nightly
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.9.13
+  - numpy
+  - matplotlib
+  - seaborn
+  - pandas
+  - imageio
+  - nltk
+  - notebook
+  - scikit-learn
+  - pytorch
+  - torchvision
+  - quantities
+  - holoviews
+  - jupyterlab
+  # - pyfim
+  # - ipykernel
+  # - jupyter
+  # - nbconvert
+  # - scipy
+  - pip
+  - pip:
+    - elephant
+    - viziphant
+    - pyfim
+

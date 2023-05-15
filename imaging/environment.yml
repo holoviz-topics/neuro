@@ -1,0 +1,13 @@
+name: imaging
+channels:
+  - conda-forge
+dependencies:
+  - holoviews
+  - panel
+  - hvplot
+  - datashader
+  - numpy
+  - xarray
+  - dask
+  - ffmpeg-python
+  - jupyterlab
