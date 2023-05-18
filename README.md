@@ -1,5 +1,15 @@
 # Workflow Viz with HoloViz+Bokeh for Biomedical Research in Neuroscience
 
+## Why?
+
+### Why "Biomedical Research in Neuroscience"?
+
+Multiple (probably all) HoloViz+Bokeh developers believe that helping people through the furthering of clinically impactful science is a worthy pursuit, and in need of a data visualization boost.
+
+### OK, but why "Workflow Viz with HoloViz+Bokeh"?
+
+We hypothesize that the visualization (perception through the eyes) within the process of working always benefits from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools provides the interactivity and shareability needed to support research as a collective action rather than a collection of solitary observations.
+
 ## What?
 
 TODO: Short description of project
@@ -41,16 +51,6 @@ Eventually, the polished version of these workflows will likely be published to 
 ### How did this come about?
 
 The efforts in this repository are made possible through funding from the kind folks at the Chan Zuckerberg Initiative. Learn more from the [grant announcement]([url](https://blog.bokeh.org/announcing-czi-funding-for-bokeh-for-bioscience-5f74426c011a)).
-
-## Why?
-
-### Why "Biomedical Research in Neuroscience"?
-
-Multiple (probably all) HoloViz+Bokeh developers believe that helping people through the furthering of clinically impactful science is a worthy pursuit, but also in need of a data visualization boost.
-
-### OK, but why "Workflow Viz with HoloViz+Bokeh"?
-
-We hypothesize that the visualization (perception through the eyes) within the process of working always benefits from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools provides the interactivity and shareability needed to support research as a collective action rather than a collection of solitary observations.
 
 ## Who?
 
