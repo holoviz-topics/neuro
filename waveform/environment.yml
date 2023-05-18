@@ -1,13 +1,16 @@
-name: imaging
+name: neuro-waveform
 channels:
   - conda-forge
 dependencies:
+  - python=3.9
   - holoviews
   - panel
-  - hvplot
   - datashader
   - numpy
+  - pandas
   - xarray
-  - dask
+  - ipykernel
   - ffmpeg-python
-  - jupyterlab
+  - pip
+  - pip:
+    - -e ../_neurodatagen

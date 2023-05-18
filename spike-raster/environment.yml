@@ -1,0 +1,16 @@
+name: neuro-spike-raster
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - holoviews
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray
+  - ipykernel
+  - ffmpeg-python
+  - pip
+  - pip:
+    - -e ../_neurodatagen
