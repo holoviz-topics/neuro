@@ -1,0 +1,16 @@
+name: neuro-mne-eeg-viewer
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - holoviews
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray
+  - ipykernel
+  - mne
+  - pip
+  - pip:
+    - -e ../_neurodatagen

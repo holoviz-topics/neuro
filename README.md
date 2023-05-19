@@ -24,7 +24,7 @@ This repo contains the development versions of workflows at two levels - element
 
 1. Spike Motif Viewer (planned, info, demo, real data, simulated data)
 2. MNE EEG App (planned, info, demo, real data, simulated data)
-3. Minian CNFM App (planned, info, demo, real data, simulated data)
+3. Minian CNMF App (planned, info, demo, real data, simulated data)
 
 Eventually, the polished version of these workflows will likely be published to [examples.holoviz.org](https://examples.pyviz.org/).
 
@@ -36,33 +36,33 @@ Eventually, the polished version of these workflows will likely be published to 
 - **Specifications:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes (in progress).
 - **Data:** To assist the development using real data (TODO: add link), some workflows utilize simple data simulators (in progress TODO: add link) to help benchmark across data and parameter space.
 - **Repo Structure and dev patterns:** 
-  - As the data generators can be useful to multiple workflows, they are kept separate:
+  - As the data generators can be useful to multiple workflows, they are kept as a separate and importable module:
     ```
-    /neurodatagen
-        __init__.py
-        data_gen_code.py
+    /_neurodatagen
         pyproject.toml
-    /workflow1
-        workflow1_demo.ipynb
-        workflow1_info.md
+        /neurodatagen
+            __init__.py
+    /example_workflow
         environment.yml
+        demo_example-workflow.ipynb
+        readme_example-workflow.md
         /dev
-            date_workflow1_dev.ipynb
+            date_example-workflow_task.ipynb
     ```
-  - Each workflow should have an `environment.yml` that will install the data_gen module in dev mode:
+  - Each workflow should have an `environment.yml` with which to create a conda env that will install the neurodatagen module in dev mode:
     ```
-    name: neuro-workflow1
+    name: neuro-example-workflow
     channels:
     - conda-forge
     dependencies:
     - python=3.9
     - pip
     - pip:
-        - -e ../neurodatagen
+        - -e ../_neurodatagen
     ```
-  - Use the `dev` dir in each workflow as shared scratch space.
-  - Maintain `<workflow>_demo.ipynb` as the latest (stable) version of the workflow.
-  - Use the `<workflow>_readme.md` for any essential workflow-specific information.
+  - Use the `dev` dir in each workflow as shared scratch space. There is no expectation that anything here is maintained.
+  - Maintain `demo_<workflow>.ipynb` as the latest (stable) version of the workflow.
+  - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
 
 ---
 ## Who is behind this?
