@@ -1,5 +1,7 @@
 # HoloViz+Bokeh for Neuroscience Workflows
 
+> :warning: This work is in early development and changing rapidly. It is not ready for non-contributor use :warning:
+
 ### What is this repo?
 
 TODO: Short description of project and repo purpose
