@@ -26,7 +26,7 @@ This repo contains the development versions of workflows at two levels - element
 2. MNE EEG App (planned, info, demo, real data, simulated data)
 3. Minian CNMF App (planned, info, demo, real data, simulated data)
 
-Eventually, the polished version of these workflows will likely be published to [examples.holoviz.org](https://examples.pyviz.org/).
+Eventually, polished demos of these workflows will be published to [examples.holoviz.org](https://examples.pyviz.org/).
 
 ---
 ## Contributing
@@ -60,7 +60,7 @@ Eventually, the polished version of these workflows will likely be published to 
     - pip:
         - -e ../_neurodatagen
     ```
-  - Use the `dev` dir in each workflow as shared scratch space. There is no expectation that anything here is maintained.
+  - Use the `dev` dir in each workflow as shared scratch space within the `main` branch. There is no expectation that anything here is maintained.
   - Maintain `demo_<workflow>.ipynb` as the latest (stable) version of the workflow.
   - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
 
