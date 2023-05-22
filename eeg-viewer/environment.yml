@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python=3.9
   - holoviews
+  - hvplot
   - panel
   - datashader
   - numpy
@@ -11,6 +12,7 @@ dependencies:
   - xarray
   - ipykernel
   - mne
+  - neurodsp
   - pip
   - pip:
     - -e ../_neurodatagen
