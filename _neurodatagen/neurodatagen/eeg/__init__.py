@@ -1,1 +1,2 @@
-from .gen_eeg import simulate_eeg
+from .gen_eeg import *
+from .gen_eeg_mne import *

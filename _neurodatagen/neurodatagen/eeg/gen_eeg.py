@@ -1,53 +1,41 @@
-import mne
 import numpy as np
 
-def simulate_eeg(duration=10, n_channels=100, sfreq=1000):
+def generate_eeg_brown(n_channels: int, n_seconds: float, fs: int,
+                            highpass: float = 2.0, amplitude: float = 50.0) -> tuple[np.ndarray, np.ndarray, list]:
     """
-    Simulate EEG data using the MNE toolbox as noisy sine waves.
-    For now, hard-coding the noise amplitude scaling and eeg data scaling.
+    Generate synthetic EEG data with brown noise characteristics.
 
-    Parameters:
-        duration (float): Duration of the simulated data in seconds.
+    Args:
         n_channels (int): Number of EEG channels.
-        sfreq (float): Sampling frequency in Hz.
+        n_seconds (float): Duration of the EEG data in seconds.
+        fs (int): Sampling rate of the EEG data in Hz.
+        highpass (float, optional): High-pass filter factor in Hz. Frequencies lower than
+            this value will be attenuated. Should be greater than 0. Defaults to 2.0.
+        amplitude (float, optional): Amplitude scaling factor for the generated EEG data.
+            Defaults to 50.0 microvolts.
 
     Returns:
-        mne.io.RawArray: Simulated EEG data as a `mne.io.RawArray` object.
+        data (np.ndarray): Synthetic EEG data as a NumPy array of shape (n_channels, total_samples).
+        time (np.ndarray): Time array as a NumPy array of shape (total_samples,).
+        ch_names (list): List of strings of channel names like: EEG <Channel num>
 
     """
+    from neurodsp.sim import sim_powerlaw
 
-    # Calculate the number of samples based on duration and sampling frequency
-    n_samples = int(duration * sfreq)
+    total_samples = int(n_seconds * fs)
 
-    # Create a time vector for the EEG data
-    times = np.arange(n_samples) / sfreq
-
-    # Generate synthetic EEG data using sine waves
-    data = np.zeros((n_channels, n_samples))
+    # Generate high-passed brown noise for each channel
+    scaled_noise = np.empty((n_channels, total_samples))
     for ch in range(n_channels):
-        # Generate a random frequency for each channel
-        freq = np.random.uniform(4, 30)
-        # Generate a sine wave for the channel
-        sine_wave = np.sin(2 * np.pi * freq * times)
-        # Add the sine wave to the channel's data
-        data[ch] = sine_wave
+        brown_noise = sim_powerlaw(n_seconds, fs, f_range=(highpass, None))
+        scaled_noise[ch] = brown_noise * amplitude
 
-    # Add noise to the data to make it more realistic
-    noise_amplitude = 0.2  # Adjust this parameter to control the noise level
-    noise = np.random.normal(scale=noise_amplitude, size=(n_channels, n_samples))
-    data += noise
-    
-    # There is some correction happening for 'eeg' 'ch_type' data that scales it up..
-    # so scale the data down first:
-    data = data * 1e-5
+    time = np.arange(total_samples) / fs
 
-    # Create a channel names list
+    # Check dimensions of the generated data
+    assert scaled_noise.shape == (n_channels, total_samples), "Incorrect dimensions for scaled_noise array"
+
+    # Create channel names
     ch_names = [f'EEG {i+1}' for i in range(n_channels)]
 
-    # Create an info object
-    info = mne.create_info(ch_names=ch_names, sfreq=sfreq, ch_types='eeg')
-
-    # Create a `mne.io.RawArray` object
-    raw = mne.io.RawArray(data, info)
-
-    return raw
+    return scaled_noise, time, ch_names
