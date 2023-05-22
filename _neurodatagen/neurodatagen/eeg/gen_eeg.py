@@ -1,9 +1,11 @@
 import numpy as np
+from neurodsp.sim import sim_powerlaw
 
-def generate_eeg_brown(n_channels: int, n_seconds: float, fs: int,
-                            highpass: float = 2.0, amplitude: float = 50.0) -> tuple[np.ndarray, np.ndarray, list]:
+def generate_eeg_powerlaw(n_channels: int, n_seconds: float, fs: int,
+                            highpass: float = 2.0, exponent: float = -1,
+                            amplitude: float = 50.0) -> tuple[np.ndarray, np.ndarray, list]:
     """
-    Generate synthetic EEG data with brown noise characteristics.
+    Generate synthetic EEG data as power law time series, with a specified exponent.
 
     Args:
         n_channels (int): Number of EEG channels.
@@ -11,6 +13,7 @@ def generate_eeg_brown(n_channels: int, n_seconds: float, fs: int,
         fs (int): Sampling rate of the EEG data in Hz.
         highpass (float, optional): High-pass filter factor in Hz. Frequencies lower than
             this value will be attenuated. Should be greater than 0. Defaults to 2.0.
+        exponent (float): Power law exponent. Defaults to `-1`, producing pink noise; a reasonable alternative is `-2`, producing brown noise.
         amplitude (float, optional): Amplitude scaling factor for the generated EEG data.
             Defaults to 50.0 microvolts.
 
@@ -20,14 +23,13 @@ def generate_eeg_brown(n_channels: int, n_seconds: float, fs: int,
         ch_names (list): List of strings of channel names like: EEG <Channel num>
 
     """
-    from neurodsp.sim import sim_powerlaw
 
     total_samples = int(n_seconds * fs)
 
     # Generate high-passed brown noise for each channel
     scaled_noise = np.empty((n_channels, total_samples))
     for ch in range(n_channels):
-        brown_noise = sim_powerlaw(n_seconds, fs, f_range=(highpass, None))
+        brown_noise = sim_powerlaw(n_seconds, fs, exponent=exponent, f_range=(highpass, None))
         scaled_noise[ch] = brown_noise * amplitude
 
     time = np.arange(total_samples) / fs
@@ -36,6 +38,10 @@ def generate_eeg_brown(n_channels: int, n_seconds: float, fs: int,
     assert scaled_noise.shape == (n_channels, total_samples), "Incorrect dimensions for scaled_noise array"
 
     # Create channel names
-    ch_names = [f'EEG {i+1}' for i in range(n_channels)]
+    ch_names = create_channel_names(n_channels)
 
     return scaled_noise, time, ch_names
+
+def create_channel_names(n_channels: (int) = None) -> list[str,]:
+    """ Given number of channels, return list of str like 'EEG 1'"""
+    return [f'EEG {i+1}' for i in range(n_channels)]
