@@ -14,11 +14,83 @@ This repo contains the development versions of workflows at two levels - element
 
 **Element Workflows**:
 
-1. Ephys Viewer (in progress, info, demo, real data, simulated data)
-2. Waveform Viewer (in progress, info, demo, real data, simulated data)
-3. Spike Raster (in progress, info, demo, real data, simulated data)
-4. EEG Viewer (in progress, info, demo, real data, simulated data)
-5. Video Viewer (in progress, info, demo, real data, simulated data)
+<table align="center">
+  <tr>
+  <td>
+      <!-- Title -->
+      <h3>Ephys Viewer</h3>
+      <h4>(in progress)</h4>
+      <!-- Thumbnail link to demo -->
+      <a href="./ephys-viewer/demo_ephys-viewer.ipynb">
+        <img src="./ephys-viewer/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
+      </a>
+      <!-- Badges, etc -->
+      <!-- Additional content -->
+      <p>
+      [<a href="./ephys-viewer/readme_eeg-viewer.md">readme</a>,
+      <a href="./ephys-viewer/demo_eeg-viewer.ipynb"> demo</a>]
+    </td>
+
+  <td>
+      <!-- Title -->
+      <h3>Waveform Viewer</h3>
+      <h4>(in progress)</h4>
+      <!-- Thumbnail link to demo -->
+      <a href="./waveform/demo_waveform.ipynb">
+        <img src="" alt="waveform" width="125"/>
+      </a>
+      <!-- Badges, etc -->
+      <!-- Additional content -->
+      <p>
+      [<a href="./waveform/readme_waveform.md">readme</a>,
+      <a href="./waveform/demo_waveform.ipynb"> demo</a>]
+    </td>
+  <td>
+      <!-- Title -->
+      <h3>Spike Raster</h3>
+      <h4>(in progress)</h4>
+      <!-- Thumbnail link to demo -->
+      <a href="./spike-raster/demo_spike-raster.ipynb">
+        <img src="" alt="spike-raster" width="125"/>
+      </a>
+      <!-- Badges, etc -->
+      <!-- Additional content -->
+      <p>
+      [<a href="./spike-raster/readme_spike-raster.md">readme</a>,
+      <a href="./spike-raster/demo_spike-raster.ipynb"> demo</a>]
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <!-- Title -->
+      <h3>EEG Viewer</h3>
+      <h4>(in progress)</h4>
+      <!-- Thumbnail link to demo -->
+      <a href="./eeg-viewer/demo_eeg-viewer.ipynb">
+        <img src="" alt="eeg-viewer" width="125"/>
+      </a>
+      <!-- Badges, etc -->
+      <!-- Additional content -->
+      <p>
+      [<a href="./eeg-viewer/readme_eeg-viewer.md">readme</a>,
+      <a href="./eeg-viewer/demo_eeg-viewer.ipynb"> demo</a>]
+    </td>
+    <td>
+      <!-- Title -->
+      <h3>Video Viewer</h3>
+      <h4>(in progress)</h4>
+      <!-- Thumbnail link to demo -->
+      <a href="./video-viewer/demo_video-viewer.ipynb">
+        <img src="" alt="video-viewer" width="125"/>
+      </a>
+      <!-- Badges, etc -->
+      <!-- Additional content -->
+      <p>
+      [<a href="./video-viewer/readme_video-viewer.md">readme</a>,
+      <a href="./video-viewer/demo_video-viewer.ipynb"> demo</a>]
+    </td>
+  </tr>
+</table>
 
 **Community Workflows**:
 
