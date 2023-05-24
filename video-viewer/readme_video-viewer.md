@@ -1,8 +1,9 @@
-> :warning: Work in progress
-
 # Video Viewer
 
-Status: in progress
+> Status: :warning: in progress
+
+## Summary
+TODO: add migrate over notes, description, plans
 
 Links:
 - [Workflow demo](./demo_video-viewer.ipynb)
