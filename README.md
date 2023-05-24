@@ -33,7 +33,7 @@ This repo contains the development versions of workflows at two levels - element
 
   <td>
       <!-- Title -->
-      <h3>Waveform Viewer</h3>
+      <h3>Waveform</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./waveform/demo_waveform.ipynb">
