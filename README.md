@@ -59,8 +59,8 @@ This repo contains the development versions of workflows at two levels - element
       [<a href="./spike-raster/readme_spike-raster.md">readme</a>,
       <a href="./spike-raster/demo_spike-raster.ipynb"> demo</a>]
     </td>
-  </tr>
-  <tr>
+  <!-- </tr>
+  <tr> -->
     <td>
       <!-- Title -->
       <h3>EEG Viewer</h3>
