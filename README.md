@@ -156,7 +156,7 @@ This work is a collaboration between developers and scientists. While some contr
 - Jan Antolik
 
 Sponsors:
-- 2023 - 2024: Chan Zuckerberg Initiative. Learn more in the [grant announcement]([url](https://blog.bokeh.org/announcing-czi-funding-for-bokeh-for-bioscience-5f74426c011a)).
+- 2023 - 2024: Chan Zuckerberg Initiative. Learn more in the [grant announcement](https://blog.bokeh.org/announcing-czi-funding-for-bokeh-for-bioscience-5f74426c011a).
 
 
 ---
