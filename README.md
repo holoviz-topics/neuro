@@ -51,7 +51,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./spike-raster/demo_spike-raster.ipynb">
-        <img src="" alt="spike-raster" width="125"/>
+        <img src="./spike-raster/230524_spike-raster.png" alt="spike-raster" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->

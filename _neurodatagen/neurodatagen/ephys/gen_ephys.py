@@ -1,7 +1,5 @@
 from typing import Tuple
 import numpy as np
-from neurodsp.sim import sim_powerlaw
-
 
 def generate_action_potential(t: np.ndarray, gaussian_std_dev: float = 0.1, decay_rate: float = 5.0) -> np.ndarray:
     """
@@ -22,6 +20,7 @@ def generate_action_potential(t: np.ndarray, gaussian_std_dev: float = 0.1, deca
         Action potential signal array.
     """
     # Create Gaussian for the upstroke
+
     upstroke = np.exp(-t**2/(2*gaussian_std_dev**2))
     upstroke /= np.max(upstroke)  # Normalize
 
@@ -118,7 +117,9 @@ def generate_ephys_powerlaw(n_channels: int, n_seconds: float, fs: int = 30000,
         ch_names (list): List of strings of channel names like: ['1', '2', ]
 
     """
-
+    
+    from neurodsp.sim import sim_powerlaw # import here to avoid dependency for all ephys workflows
+    
     total_samples = int(n_seconds * fs)
 
     # Generate high-passed power law noise for each channel
