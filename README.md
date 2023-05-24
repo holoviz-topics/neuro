@@ -22,7 +22,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./ephys-viewer/demo_ephys-viewer.ipynb">
-        <img src="./ephys-viewer/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
+        <img src="./ephys-viewer/assets/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
@@ -37,7 +37,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./waveform/demo_waveform.ipynb">
-        <img src="./waveform/230524_waveform.png" alt="waveform" width="125"/>
+        <img src="./waveform/assets/230524_waveform.png" alt="waveform" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
@@ -51,7 +51,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./spike-raster/demo_spike-raster.ipynb">
-        <img src="./spike-raster/230524_spike-raster.png" alt="spike-raster" width="125"/>
+        <img src="./spike-raster/assets/230524_spike-raster.png" alt="spike-raster" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
@@ -67,7 +67,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./eeg-viewer/demo_eeg-viewer.ipynb">
-        <img src="./eeg-viewer/230524_eeg-viewer.png" 
+        <img src="./eeg-viewer/assets/230524_eeg-viewer.png" 
         alt="eeg-viewer" width="125"/>
       </a>
       <!-- Badges, etc -->

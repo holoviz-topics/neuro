@@ -1,10 +1,10 @@
-> :warning: Work in progress
-
 # Ephys Viewer
+> Status: :warning: in progress
 
-Status: in progress
+## Summary
+TODO: add migrate over notes, description, plans
 
-Links:
+## Links:
 - [Workflow demo](./demo_ephys-viewer.ipynb)
 - [Tasks](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*ephys-viewer*%22)
 - [Electrophysiology notes](https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes)
