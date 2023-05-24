@@ -37,7 +37,7 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./waveform/demo_waveform.ipynb">
-        <img src="" alt="waveform" width="125"/>
+        <img src="./waveform/230524_waveform.png" alt="waveform" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
@@ -67,7 +67,8 @@ This repo contains the development versions of workflows at two levels - element
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./eeg-viewer/demo_eeg-viewer.ipynb">
-        <img src="" alt="eeg-viewer" width="125"/>
+        <img src="./eeg-viewer/230524_eeg-viewer.png" 
+        alt="eeg-viewer" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->

@@ -4,13 +4,13 @@ channels:
 dependencies:
   - python=3.9
   - holoviews
+  - hvplot
   - panel
   - datashader
   - numpy
   - pandas
   - xarray
   - ipykernel
-  - ffmpeg-python
   - pip
   - pip:
     - -e ../_neurodatagen
