@@ -27,8 +27,8 @@ This repo contains the development versions of workflows at two levels - element
       <!-- Badges, etc -->
       <!-- Additional content -->
       <p>
-      [<a href="./ephys-viewer/readme_eeg-viewer.md">readme</a>,
-      <a href="./ephys-viewer/demo_eeg-viewer.ipynb"> demo</a>]
+      [<a href="./ephys-viewer/readme_ephys-viewer.md">readme</a>,
+      <a href="./ephys-viewer/demo_ephys-viewer.ipynb"> demo</a>]
     </td>
 
   <td>
