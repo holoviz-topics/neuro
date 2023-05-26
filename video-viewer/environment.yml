@@ -12,6 +12,7 @@ dependencies:
   - xarray
   - ipykernel
   - ffmpeg-python
+  - opencv-python
   - pip
   - pip:
     - -e ../_neurodatagen

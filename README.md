@@ -4,7 +4,7 @@
 
 ### What is this repo?
 
-TODO: Short description of project and repo purpose
+TODO: Short description of project, repo purpose, goals, etc
 
 ### What are workflows?
 
@@ -21,14 +21,14 @@ This repo contains the development versions of workflows at two levels - element
       <h3>Ephys Viewer</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
-      <a href="./ephys-viewer/demo_ephys-viewer.ipynb">
+      <a href="./ephys-viewer/workflow_ephys-viewer.ipynb">
         <img src="./ephys-viewer/assets/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
       <p>
       [<a href="./ephys-viewer/readme_ephys-viewer.md">readme</a>,
-      <a href="./ephys-viewer/demo_ephys-viewer.ipynb"> demo</a>]
+      <a href="./ephys-viewer/workflow_ephys-viewer.ipynb"> workflow</a>]
     </td>
 
   <td>
@@ -36,28 +36,28 @@ This repo contains the development versions of workflows at two levels - element
       <h3>Waveform</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
-      <a href="./waveform/demo_waveform.ipynb">
+      <a href="./waveform/workflow_waveform.ipynb">
         <img src="./waveform/assets/230524_waveform.png" alt="waveform" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
       <p>
       [<a href="./waveform/readme_waveform.md">readme</a>,
-      <a href="./waveform/demo_waveform.ipynb"> demo</a>]
+      <a href="./waveform/workflow_waveform.ipynb"> workflow</a>]
     </td>
   <td>
       <!-- Title -->
       <h3>Spike Raster</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
-      <a href="./spike-raster/demo_spike-raster.ipynb">
+      <a href="./spike-raster/workflow_spike-raster.ipynb">
         <img src="./spike-raster/assets/230524_spike-raster.png" alt="spike-raster" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
       <p>
       [<a href="./spike-raster/readme_spike-raster.md">readme</a>,
-      <a href="./spike-raster/demo_spike-raster.ipynb"> demo</a>]
+      <a href="./spike-raster/workflow_spike-raster.ipynb"> workflow</a>]
     </td>
   <!-- </tr>
   <tr> -->
@@ -66,7 +66,7 @@ This repo contains the development versions of workflows at two levels - element
       <h3>EEG Viewer</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
-      <a href="./eeg-viewer/demo_eeg-viewer.ipynb">
+      <a href="./eeg-viewer/workflow_eeg-viewer.ipynb">
         <img src="./eeg-viewer/assets/230524_eeg-viewer.png" 
         alt="eeg-viewer" width="125"/>
       </a>
@@ -74,32 +74,32 @@ This repo contains the development versions of workflows at two levels - element
       <!-- Additional content -->
       <p>
       [<a href="./eeg-viewer/readme_eeg-viewer.md">readme</a>,
-      <a href="./eeg-viewer/demo_eeg-viewer.ipynb"> demo</a>]
+      <a href="./eeg-viewer/workflow_eeg-viewer.ipynb"> workflow</a>]
     </td>
     <td>
       <!-- Title -->
       <h3>Video Viewer</h3>
       <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
-      <a href="./video-viewer/demo_video-viewer.ipynb">
-        <img src="" alt="video-viewer" width="125"/>
+      <a href="./video-viewer/workflow_video-viewer.ipynb">
+        <img src="./video-viewer/assets/230526_video-viewer.png" alt="video-viewer" width="125"/>
       </a>
       <!-- Badges, etc -->
       <!-- Additional content -->
       <p>
       [<a href="./video-viewer/readme_video-viewer.md">readme</a>,
-      <a href="./video-viewer/demo_video-viewer.ipynb"> demo</a>]
+      <a href="./video-viewer/workflow_video-viewer.ipynb"> workflow</a>]
     </td>
   </tr>
 </table>
 
 **Community Workflows**:
 
-1. Spike Motif Viewer (planned, info, demo, real data, simulated data)
-2. MNE EEG App (planned, info, demo, real data, simulated data)
-3. Minian CNMF App (planned, info, demo, real data, simulated data)
+1. Spike Motif Viewer (planned, info, workflow, real data, simulated data)
+2. MNE EEG App (planned, info, workflow, real data, simulated data)
+3. Minian CNMF App (planned, info, workflow, real data, simulated data)
 
-Eventually, polished demos of these workflows will be published to [examples.holoviz.org](https://examples.pyviz.org/).
+Eventually, polished workflow examples will be published to [examples.holoviz.org](https://examples.pyviz.org/).
 
 ---
 ## Contributing
@@ -117,8 +117,9 @@ Eventually, polished demos of these workflows will be published to [examples.hol
             __init__.py
     /example_workflow
         environment.yml
-        demo_example-workflow.ipynb
+        workflow_example-workflow.ipynb
         readme_example-workflow.md
+        /assets
         /dev
             date_example-workflow_task.ipynb
     ```
@@ -134,7 +135,7 @@ Eventually, polished demos of these workflows will be published to [examples.hol
         - -e ../_neurodatagen
     ```
   - Use the `dev` dir in each workflow as shared scratch space within the `main` branch. There is no expectation that anything here is maintained.
-  - Maintain `demo_<workflow>.ipynb` as the latest (stable) version of the workflow.
+  - Maintain `workflow_<workflow>.ipynb` as the latest (stable) version of the workflow.
   - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
 
 ---
