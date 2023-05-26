@@ -130,5 +130,8 @@ dmypy.json
 
 .DS_STORE
 
+# data
 **/*.mp4
 **/*.avi
+
+**/data/*
