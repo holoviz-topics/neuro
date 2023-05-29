@@ -1,16 +1,32 @@
-# HoloViz+Bokeh for Neuroscience Workflows
+# [HoloViz+Bokeh for Neuroscience Workflows](https://github.com/holoviz-topics/neuro)
 
-> :warning: This work is in early development and changing rapidly. It is not ready for general public use. :warning:
+> :warning: This work is in early development and changing rapidly. It is not ready for scientific use. :warning:
 
 ### What is this repo?
 
-TODO: Short description of project, repo purpose, goals, etc
+Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-independent, browser-based workflows for biomedical research. In support of this goal, this repository is the development ground for optimization and demonstration of HoloViz and Bokeh tools within the realm of neuroscience.
+
+Urgent objectives:
+- **Workflow Development:** Host the development of workflows.
+- **Code Sharing:** Promote consistency and facilitate sharing of code across different workflows.
+- **Collaboration:** Foster collaborative efforts between the HoloViz+Bokeh development teams and scientific collaborators outside these groups. This cross-collaboration aims to effectively tailor the tools to the specific requirements of the neuroscience community.
+- **Issue Identification and Resolution:** As part of ongoing development, identify and address any performance or user interface bottlenecks in the workflows to optimize their usage and effectiveness.
+- **Benchmarking and Testing Integration:** Host benchmarking work that involves the use of real and simulated data to assess the performance and functionality of the tools under relevant conditions.
+
+Less urgent objectives:
+- **Improvement and Refinement:** Over time, enhance, improve, and refine the developed workflows based on user feedback and advancements in the field.
+- **Dissemination:** Eventually, share workflows with the broader scientific community. It's unclear yet where these all will be showcased, but at least some will go to examples.holoviz.org.
+- **Education and Community Building:** Undertake educational and community-building activities such as providing tutorials, workshops, other educational resources to help researchers effectively utilize the developed tools.
+
+Roadmap:
+- At a high-level: TODO
+- An incomplete task roadmap is visible on this project board view (TODO)
 
 ### What are workflows?
 
 This repo contains the development versions of workflows at two levels - element and community. Element workflows are combined and adapted to become the building blocks for specialized scientific community workflows. The goal of an element workflow is to be generalizable while the goal of a community workflow is to be well-contextualized; both are directly useful to scientists.
 
-*(TODO: add short descriptions, previews, links, badges, etc)*
+*(TODO: add/inherit short descriptions)*
 
 **Element Workflows**:
 
@@ -99,8 +115,6 @@ This repo contains the development versions of workflows at two levels - element
 2. MNE EEG App (planned, info, workflow, real data, simulated data)
 3. Minian CNMF App (planned, info, workflow, real data, simulated data)
 
-Eventually, polished workflow examples will be published to [examples.holoviz.org](https://examples.pyviz.org/).
-
 ---
 ## Contributing
 
@@ -141,24 +155,10 @@ Eventually, polished workflow examples will be published to [examples.holoviz.or
 ---
 ## Who is behind this?
 
-This work is a collaboration between developers and scientists. While some contributions are visible through the GitHub repo, many other contributions are less visible yet equally important. Here is a (hopefully) complete list of contributors in no particular order, as of early 2023:
+This work is a collaboration between developers and scientists, and some developer-scientists. While some contributions are visible through the GitHub repo, many other contributions are less visible yet equally important.
 
-- James Bednar
-- Demetris Roumis
-- Ian Thomas
-- Mateusz Paprocki
-- Bryan Van de Ven
-- Jean-Luc Stevens
-- Philipp Rudiger
-- Laurent Perrinet
-- Denise Cai
-- Clemens Brunner
-- Andrew Davison
-- Jan Antolik
-
-Sponsors:
+Funding:
 - 2023 - 2024: Chan Zuckerberg Initiative. Learn more in the [grant announcement](https://blog.bokeh.org/announcing-czi-funding-for-bokeh-for-bioscience-5f74426c011a).
-
 
 ---
 
@@ -168,4 +168,4 @@ Multiple (probably all) HoloViz+Bokeh developers believe that helping people thr
 
 ### Why HoloViz+Bokeh?
 
-We hypothesize that the visualization (perception through the eyes) within the process of working always benefits from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools provides the interactivity and shareability needed to support research as a collective action rather than a collection of solitary observations.
+We hypothesize that the visualization within the process of working always benefits from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools provides the interactivity and shareability needed to support research as a collective action rather than a collection of solitary observations.
