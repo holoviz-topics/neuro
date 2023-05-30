@@ -13,6 +13,5 @@ dependencies:
   - ipykernel
   - mne
   - neurodsp
-  - pip
   - pip:
     - -e ../_neurodatagen

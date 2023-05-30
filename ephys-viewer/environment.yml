@@ -11,6 +11,5 @@ dependencies:
   - pandas
   - xarray
   - ipykernel
-  - pip
   - pip:
     - -e ../_neurodatagen
