@@ -1,4 +1,4 @@
-# [HoloViz+Bokeh for Neuroscience Workflows](https://github.com/holoviz-topics/neuro)
+# [HoloViz+Bokeh for Neuroscience](https://github.com/holoviz-topics/neuro)
 
 > :warning: This work is in early development and changing rapidly. It is not ready for scientific use. :warning:
 
