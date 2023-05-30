@@ -6,23 +6,35 @@
 
 Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-independent, browser-based workflows for biomedical research. In support of this goal, this repository is the development ground for optimization and demonstration of HoloViz and Bokeh tools within the realm of neuroscience.
 
-Urgent objectives:
+<details>
+<summary> Urgent objectives: </summary>
+  
 - **Workflow Development:** Host the development of workflows.
 - **Code Sharing:** Promote consistency and facilitate sharing of code across different workflows.
 - **Collaboration:** Foster collaborative efforts between the HoloViz+Bokeh development teams and scientific collaborators outside these groups. This cross-collaboration aims to effectively tailor the tools to the specific requirements of the neuroscience community.
 - **Issue Identification and Resolution:** As part of ongoing development, identify and address any performance or user interface bottlenecks in the workflows to optimize their usage and effectiveness.
 - **Benchmarking and Testing Integration:** Host benchmarking work that involves the use of real and simulated data to assess the performance and functionality of the tools under relevant conditions.
 
-Less urgent objectives:
+</details>
+
+<details>
+<summary> Slightly less urgent objectives: </summary>
+
 - **Improvement and Refinement:** Over time, enhance, improve, and refine the developed workflows based on user feedback and advancements in the field.
 - **Dissemination:** Eventually, share workflows with the broader scientific community. It's unclear yet where these all will be showcased, but at least some will go to examples.holoviz.org.
 - **Education and Community Building:** Undertake educational and community-building activities such as providing tutorials, workshops, other educational resources to help researchers effectively utilize the developed tools.
 - **Host Domain-Specific Package:** It is possible that not all required code for workflows will be accepted or appropriate for integrations into domain-independent HoloViz/Bokeh packages. Therefore, this repo *might* end up hosting code to be packaged as a domain-specific extension. TBD!
 
-Roadmap:
+</details>
+
+<details>
+<summary> Roadmap: </summary>
+
 - At a high-level: TODO
 - An incomplete task roadmap is visible on this project board view (TODO)
 
+</details> 
+  
 ### What are workflows?
 
 This repo contains the development versions of workflows at two levels - element and community. Element workflows are combined and adapted to become the building blocks for specialized scientific community workflows. The goal of an element workflow is to be generalizable while the goal of a community workflow is to be well-contextualized; both are directly useful to scientists.
