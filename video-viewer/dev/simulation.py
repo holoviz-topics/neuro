@@ -45,17 +45,73 @@ def gauss_cell(
     return A
 
 
+
 @nb.jit(nopython=True, nogil=True, cache=True)
-def apply_arcoef(s: np.ndarray, g: np.ndarray):
+def apply_arcoef(s: np.ndarray, g: np.ndarray) -> np.ndarray:
+    """
+    Apply autoregressive coefficients to a signal.
+
+    Parameters
+    ----------
+    s : np.ndarray
+        The signal to which the autoregressive coefficients are applied.
+    g : np.ndarray
+        The autoregressive coefficients.
+
+    Returns
+    -------
+    c : np.ndarray
+        The signal after applying the autoregressive coefficients.
+    
+    More:
+    -------
+    This function uses Numba for just-in-time compilation, 
+    which converts the Python function into machine code at runtime. 
+    The "nopython" and "nogil" options ensure that the function is 
+    fully optimized and can run in parallel without the Global Interpreter Lock, 
+    respectively. The "cache" option allows the results of the compilation to be cached 
+    for faster execution in future calls.
+    """
+
+    # Initialize the output signal as an array of zeros of the same shape as the input signal
     c = np.zeros_like(s)
+
+    # Iterate over the input signal, starting from the index equal to the number of coefficients
     for idx in range(len(g), len(s)):
+        # Apply the autoregressive coefficients to the corresponding part of the input signal
         c[idx] = s[idx] + c[idx - len(g) : idx] @ g
+
+    # Return the output signal
     return c
 
 
-def ar_trace(frame: int, pfire: float, g: np.ndarray):
+def ar_trace(frame: int, pfire: float, g: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Generate an autoregressive trace with binomial events.
+
+    Parameters
+    ----------
+    frame : int
+        Number of frames.
+    pfire : float
+        Probability of firing at each frame.
+    g : np.ndarray
+        The autoregressive coefficients.
+
+    Returns
+    -------
+    C : np.ndarray
+        The generated autoregressive trace.
+    S : np.ndarray
+        The generated binomial events.
+    """
+    # Generate a binomial signal with the given probability of firing
     S = random.binomial(n=1, p=pfire, size=frame).astype(float)
+
+    # Apply the autoregressive coefficients to the binomial signal
     C = apply_arcoef(S, g)
+
+    # Return the autoregressive trace and the binomial events
     return C, S
 
 
