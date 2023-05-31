@@ -274,8 +274,7 @@ class VArrayViewer:
 
             # Generate a vertical line to indicate the current frame
             vl = hv.DynamicMap(lambda f: hv.VLine(f), streams=[self.strm_f]).opts(
-                style=dict(color="red")
-            )
+                color="red")
 
             # Combine the summary curves and the vertical line, and apply dimensions and a colormap
             summ = (hvsum * vl).map(
