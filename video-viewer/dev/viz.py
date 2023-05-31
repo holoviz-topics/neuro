@@ -34,7 +34,7 @@ class VArrayViewer:
         The framerate of playback when using the toolbar. By default `30`.
     summary : list, optional
         List of summary statistics to plot. The statistics should be one of
-        `{"mean", "max", "min", "diff"}`. By default `["mean"]`.
+        `{"mean", "max", "min", "diff"}`. By default `["mean", "max"]`.
     meta_dims : List[str], optional
         List of dimension names that can uniquely identify each input array
         in `varr`. Only used if `varr` is a `xr.Dataset`. By default `None`.
@@ -92,7 +92,7 @@ class VArrayViewer:
         self,
         varr: Union[xr.DataArray, List[xr.DataArray], xr.Dataset],
         framerate=30,
-        summary=["mean"],
+        summary=["mean", "max"],
         meta_dims: List[str] = None,
         datashading=True,
         layout=False,
@@ -162,7 +162,7 @@ class VArrayViewer:
             except KeyError:
                 print("{} Not understood for specifying summary".format(summary))
             if summ:
-                print("computing summary")
+                # print("computing summary")
                 sum_list = []
                 for k, v in summ.items():
                     sum_list.append(v.compute().assign_coords(sum_var=k))
@@ -185,32 +185,39 @@ class VArrayViewer:
 
     def get_hvobj(self):
         """
-        Generates a holoviews Layout object of the image stack and the summary curve
+        Generates a holoviews Layout object of the image stack
         """
-        
-        def get_im_ovly(meta):
-            def img(f, ds):
+        def get_im_ovly(meta):  # Function to generate overlay of image and box
+            def img(f, ds):  # Function to generate HoloViews image object for a given frame
                 return hv.Image(ds.sel(frame=f).compute(), kdims=["width", "height"])
 
+            # Select a sub-dataset based on metadata; if not possible, use the original dataset
             try:
                 curds = self.ds_sub.sel(**meta).rename("_".join(meta.values()))
             except ValueError:
                 curds = self.ds_sub
-            fim = fct.partial(img, ds=curds)
+
+            fim = fct.partial(img, ds=curds)  # Partial function for image generation with current dataset
+
+            # Create a dynamic map for images with the given partial function and frame stream
             im = hv.DynamicMap(fim, streams=[self.strm_f]).opts(
                 frame_width=500, aspect=self._w / self._h, cmap="Viridis"
             )
+
+            # Define a range of x and y coordinates for the image
             self.xyrange = RangeXY(source=im).rename(x_range="w", y_range="h")
+
+            # Create a box if layout is not yet defined
             if not self._layout:
                 hv_box = hv.Polygons([]).opts(
-                    style={"fill_alpha": 0.3, "line_color": "white"}
+                    fill_alpha= 0.3, line_color= "white"
                 )
                 self.str_box = BoxEdit(source=hv_box)
-                im_ovly = im * hv_box
+                im_ovly = im * hv_box  # Create an overlay of the image and the box
             else:
-                im_ovly = im
+                im_ovly = im  # If layout already defined, use the image as is
 
-            def hist(f, w, h, ds):
+            def hist(f, w, h, ds):  # Function to generate histogram for given frame, width, height and dataset
                 if w and h:
                     cur_im = hv.Image(
                         ds.sel(frame=f).compute(), kdims=["width", "height"]
@@ -223,53 +230,68 @@ class VArrayViewer:
                     xlabel="fluorescence", ylabel="freq"
                 )
 
-            fhist = fct.partial(hist, ds=curds)
+            fhist = fct.partial(hist, ds=curds)  # Partial function for histogram generation with current dataset
+
+            # Create a dynamic map for histograms with the given partial function and frame & xy range streams
             his = hv.DynamicMap(fhist, streams=[self.strm_f, self.xyrange]).opts(
                 frame_height=int(500 * self._h / self._w), width=150, cmap="Viridis"
             )
-            im_ovly = (im_ovly << his).map(lambda p: p.opts(style=dict(cmap="Viridis")))
-            return im_ovly
 
+            # add the histogram as an adjoint subfig
+            im_ovly = im_ovly << his
+
+            return im_ovly  # Return the overlay object
+
+        # If layout is defined and metadata is available
         if self._layout and self.meta_dicts:
-            im_dict = OrderedDict()
-            for meta in itt.product(*list(self.meta_dicts.values())):
-                mdict = {k: v for k, v in zip(list(self.meta_dicts.keys()), meta)}
-                im_dict[meta] = get_im_ovly(mdict)
+            im_dict = OrderedDict()  # Initialize an ordered dictionary to store the images
+            for meta in itt.product(*list(self.meta_dicts.values())):  # For each combination of metadata values
+                mdict = {k: v for k, v in zip(list(self.meta_dicts.keys()), meta)}  # Map each metadata key to its value
+                im_dict[meta] = get_im_ovly(mdict)  # Add the generated overlay to the dictionary
+
+            # Generate a HoloViews NdLayout object from the image dictionary
             ims = hv.NdLayout(im_dict, kdims=list(self.meta_dicts.keys()))
         else:
+            # If no layout or metadata, generate an overlay for the current metadata
             ims = get_im_ovly(self.cur_metas)
-        if self.summary is not None:
+
+        if self.summary is not None:  # If summary data is available
+            # Generate a HoloViews Curve object from the summary data
             hvsum = (
                 hv.Dataset(self.sum_sub)
                 .to(hv.Curve, kdims=["frame"])
                 .overlay("sum_var")
             )
+
+            # Apply data shading if required
             if self._datashade:
                 hvsum = datashade_ndcurve(hvsum, kdim="sum_var")
+
             try:
-                hvsum = hvsum.layout(list(self.meta_dicts.keys()))
+                hvsum = hvsum.layout(list(self.meta_dicts.keys()))  # Arrange the summary layout based on metadata
             except:
                 pass
+
+            # Generate a vertical line to indicate the current frame
             vl = hv.DynamicMap(lambda f: hv.VLine(f), streams=[self.strm_f]).opts(
                 style=dict(color="red")
             )
+
+            # Combine the summary curves and the vertical line, and apply dimensions and a colormap
             summ = (hvsum * vl).map(
                 lambda p: p.opts(frame_width=500, aspect=3), [hv.RGB, hv.Curve]
             )
+
+            # Combine the images and the summary into a single layout, arranged in columns
             hvobj = (ims + summ).cols(1)
         else:
-            hvobj = ims
-        return hvobj
+            hvobj = ims  # If no summary data, the layout is just the images
+
+        return hvobj  # Return the layout object
+
 
     def show(self) -> pn.layout.Column:
-        """
-        Return visualizations that can be directly displayed.
-
-        Returns
-        -------
-        pn.layout.Column
-            Resulting visualizations containing both plots and toolbars.
-        """
+        # Return widgets and plots in a layout
         return pn.layout.Column(self.widgets, self.pnplot)
 
     def _widgets(self):
@@ -352,7 +374,7 @@ def datashade_ndcurve(
     color_key = [(v, Category10_10[iv]) for iv, v in enumerate(var)]
     color_pts = hv.NdOverlay(
         {
-            k: hv.Points([0, 0], label=str(k)).opts(style=dict(color=v))
+            k: hv.Points([0, 0], label=str(k)).opts(color=v)
             for k, v in color_key
         }
     )
