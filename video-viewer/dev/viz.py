@@ -10,10 +10,9 @@ from collections import OrderedDict
 from datashader import count_cat
 from holoviews.streams import Stream, BoxEdit, RangeXY
 from holoviews.operation.datashader import datashade
-import holoviews as hv
-hv.extension('bokeh')
+import holoviews as hv; hv.extension('bokeh')
 import panel.widgets as pnwgt
-from bokeh.palettes import Category10_10, Viridis256
+from bokeh.palettes import Category10_10
 
 
 class VArrayViewer:
