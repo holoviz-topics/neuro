@@ -48,76 +48,81 @@ This repo contains the development versions of workflows at two levels - element
   <td>
       <!-- Title -->
       <h3>Ephys Viewer</h3>
-      <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./ephys-viewer/workflow_ephys-viewer.ipynb">
         <img src="./ephys-viewer/assets/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
       </a>
-      <!-- Badges, etc -->
-      <!-- Additional content -->
       <p>
-      [<a href="./ephys-viewer/readme_ephys-viewer.md">readme</a>,
-      <a href="./ephys-viewer/workflow_ephys-viewer.ipynb"> workflow</a>]
+      <!-- Additional content -->
+      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
+      <p>
+      <a href="./ephys-viewer/readme_ephys-viewer.md">readme</a>
+      <p>
+      <a href="./ephys-viewer/workflow_ephys-viewer.ipynb"> workflow</a>
     </td>
 
   <td>
       <!-- Title -->
       <h3>Waveform</h3>
-      <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./waveform/workflow_waveform.ipynb">
         <img src="./waveform/assets/230524_waveform.png" alt="waveform" width="125"/>
       </a>
-      <!-- Badges, etc -->
-      <!-- Additional content -->
       <p>
-      [<a href="./waveform/readme_waveform.md">readme</a>,
-      <a href="./waveform/workflow_waveform.ipynb"> workflow</a>]
+      <!-- Additional content -->
+      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
+      <p>
+      <a href="./waveform/readme_waveform.md">readme</a>
+      <p>
+      <a href="./waveform/workflow_waveform.ipynb"> workflow</a>
     </td>
   <td>
       <!-- Title -->
       <h3>Spike Raster</h3>
-      <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./spike-raster/workflow_spike-raster.ipynb">
         <img src="./spike-raster/assets/230524_spike-raster.png" alt="spike-raster" width="125"/>
       </a>
-      <!-- Badges, etc -->
-      <!-- Additional content -->
       <p>
-      [<a href="./spike-raster/readme_spike-raster.md">readme</a>,
-      <a href="./spike-raster/workflow_spike-raster.ipynb"> workflow</a>]
+      <!-- Additional content -->
+      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
+      <p>
+      <a href="./spike-raster/readme_spike-raster.md">readme</a>
+      <p>
+      <a href="./spike-raster/workflow_spike-raster.ipynb"> workflow</a>
     </td>
   <!-- </tr>
   <tr> -->
     <td>
       <!-- Title -->
       <h3>EEG Viewer</h3>
-      <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./eeg-viewer/workflow_eeg-viewer.ipynb">
         <img src="./eeg-viewer/assets/230524_eeg-viewer.png" 
         alt="eeg-viewer" width="125"/>
       </a>
-      <!-- Badges, etc -->
-      <!-- Additional content -->
       <p>
-      [<a href="./eeg-viewer/readme_eeg-viewer.md">readme</a>,
-      <a href="./eeg-viewer/workflow_eeg-viewer.ipynb"> workflow</a>]
+      <!-- Additional content -->
+      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
+      <p>
+      <a href="./eeg-viewer/readme_eeg-viewer.md">readme</a>
+      <p>
+      <a href="./eeg-viewer/workflow_eeg-viewer.ipynb"> workflow</a>
     </td>
     <td>
       <!-- Title -->
       <h3>Video Viewer</h3>
-      <h4>(in progress)</h4>
       <!-- Thumbnail link to demo -->
       <a href="./video-viewer/workflow_video-viewer.ipynb">
         <img src="./video-viewer/assets/230526_video-viewer.png" alt="video-viewer" width="125"/>
       </a>
-      <!-- Badges, etc -->
-      <!-- Additional content -->
       <p>
-      [<a href="./video-viewer/readme_video-viewer.md">readme</a>,
-      <a href="./video-viewer/workflow_video-viewer.ipynb"> workflow</a>]
+      <!-- Additional content -->
+      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
+      <p>
+      <a href="./video-viewer/readme_video-viewer.md">readme</a>
+      <p>
+      <a href="./video-viewer/workflow_video-viewer.ipynb"> workflow</a>
     </td>
   </tr>
 </table>
