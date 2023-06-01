@@ -1,12 +1,9 @@
-#%% import and definitions
 from typing import Tuple, Optional, Dict, List
 import os
 import warnings
-
 import dask.array as darr
 import numpy as np
 from numpy import random
-
 import sparse
 import xarray as xr
 from scipy.stats import multivariate_normal
@@ -17,18 +14,20 @@ def shift_perframe(fm: np.ndarray, sh: np.ndarray, fill=np.nan) -> np.ndarray:
     """
     Shifts all pixels in a frame by the specified amount.
 
-    Args:
-        fm: Input frame to be shifted.
-        sh: Shifts for each dimension.
-        fill: Value to fill in the places left vacant by the shift.
+    Parameters
+    ----------
+    fm: Input frame to be shifted.
+    sh: Shifts for each dimension.
+    fill: Value to fill in the places left vacant by the shift.
 
-    Returns:
-        fm: Shifted frame.
+    Returns
+    --------
+    fm: Shifted frame.
     """
     # If all values are NaN, return the original frame
     if np.isnan(fm).all():
         return fm
-    
+
     # Round shifts to nearest integer
     sh = np.around(sh).astype(int)
 
@@ -51,7 +50,15 @@ def shift_perframe(fm: np.ndarray, sh: np.ndarray, fill=np.nan) -> np.ndarray:
     return fm
 
 
-def gauss_cell(height: int, width: int, sz_mean: float, sz_sigma: float, sz_min: float, cent=None, norm=True) -> np.ndarray:
+def gauss_cell(
+    height: int,
+    width: int,
+    sz_mean: float,
+    sz_sigma: float,
+    sz_min: float,
+    cent=None,
+    norm=True,
+) -> np.ndarray:
     """
     Generates a cell with a Gaussian distribution of pixel intensities.
 
@@ -83,8 +90,12 @@ def gauss_cell(height: int, width: int, sz_mean: float, sz_sigma: float, sz_min:
         cent = np.atleast_2d([random.randint(height), random.randint(width)])
 
     # Generate sizes (height and width) for the Gaussian cell using a normal distribution
-    sz_h = np.clip(random.normal(loc=sz_mean, scale=sz_sigma, size=cent.shape[0]), sz_min, None)
-    sz_w = np.clip(random.normal(loc=sz_mean, scale=sz_sigma, size=cent.shape[0]), sz_min, None)
+    sz_h = np.clip(
+        random.normal(loc=sz_mean, scale=sz_sigma, size=cent.shape[0]), sz_min, None
+    )
+    sz_w = np.clip(
+        random.normal(loc=sz_mean, scale=sz_sigma, size=cent.shape[0]), sz_min, None
+    )
 
     # Generate grid to be used for calculating Gaussian PDF
     grid = np.moveaxis(np.mgrid[:height, :width], 0, -1)
@@ -104,7 +115,9 @@ def gauss_cell(height: int, width: int, sz_mean: float, sz_sigma: float, sz_min:
     return A
 
 
-def exp_trace(frame: int, pfire: float, tau_d: float, tau_r: float, trunc_thres: float = 1e-6) -> Tuple[np.ndarray, np.ndarray]:
+def exp_trace(
+    frame: int, pfire: float, tau_d: float, tau_r: float, trunc_thres: float = 1e-6
+) -> Tuple[np.ndarray, np.ndarray]:
     """
     Generates an exponential trace for a cell, simulating the calcium indicator dynamics modulated by a Poisson spike train.
 
@@ -129,7 +142,7 @@ def exp_trace(frame: int, pfire: float, tau_d: float, tau_r: float, trunc_thres:
         Generated Poisson spike train for the cell.
     """
 
-    # Generate a Poisson spike train, which is a sequence of binary values (0 or 1) 
+    # Generate a Poisson spike train, which is a sequence of binary values (0 or 1)
     # indicating whether a cell fires at each frame.
     S = random.binomial(n=1, p=pfire, size=frame).astype(float)
 
@@ -140,7 +153,7 @@ def exp_trace(frame: int, pfire: float, tau_d: float, tau_r: float, trunc_thres:
     # This represents the temporal dynamics of the calcium indicator.
     v = np.exp(-t / tau_d) - np.exp(-t / tau_r)
 
-    # Truncate the exponential trace at the specified threshold. 
+    # Truncate the exponential trace at the specified threshold.
     # This is to avoid very small values that can cause numerical instability.
     v = v[v > trunc_thres]
 
@@ -151,14 +164,17 @@ def exp_trace(frame: int, pfire: float, tau_d: float, tau_r: float, trunc_thres:
     # Return the generated calcium trace and the spike train
     return C, S
 
-def random_walk(n_stp: int,
-                stp_var: float = 1,
-                constrain_factor: float = 0,
-                ndim: int = 1,
-                norm: bool = False,
-                integer: bool = True,
-                nn: bool = False,
-                smooth_var: Optional[float] = None) -> np.ndarray:
+
+def random_walk(
+    n_stp: int,
+    stp_var: float = 1,
+    constrain_factor: float = 0,
+    ndim: int = 1,
+    norm: bool = False,
+    integer: bool = True,
+    nn: bool = False,
+    smooth_var: Optional[float] = None,
+) -> np.ndarray:
     """
     Generates a random walk in ndim dimensions.
 
@@ -186,11 +202,11 @@ def random_walk(n_stp: int,
     walk : np.ndarray
         The generated random walk.
 
-    More:
-    -------
+    More Explanation
+    ----------------
     This function creates a random walk, a type of stochastic process where each step is randomly determined.
-    The function can generate both a simple random walk and a constrained random walk, where each step is 
-    influenced by the previous one to encourage movement back towards the origin. The generated walk can be 
+    The function can generate both a simple random walk and a constrained random walk, where each step is
+    influenced by the previous one to encourage movement back towards the origin. The generated walk can be
     in multiple dimensions, and additional options allow for normalization of the walk, rounding steps to the
     nearest integer, and smoothing of the walk using a Gaussian filter.
 
@@ -205,8 +221,10 @@ def random_walk(n_stp: int,
             # Get the last step of the walk, or 0 if this is the first step
             last = walk[i - 1] if i > 0 else 0
             # Generate a new step as a Gaussian random value, with mean as a function of the last step
-            walk[i] = last + random.normal(loc=-constrain_factor * last, scale=stp_var, size=ndim)
-        
+            walk[i] = last + random.normal(
+                loc=-constrain_factor * last, scale=stp_var, size=ndim
+            )
+
         # If integer is True, round the walk to the nearest integers
         if integer:
             walk = np.around(walk).astype(int)
@@ -215,11 +233,11 @@ def random_walk(n_stp: int,
     else:
         # Generate the steps of the walk as Gaussian random values
         stps = random.normal(loc=0, scale=stp_var, size=(n_stp, ndim))
-        
+
         # If integer is True, round the steps to the nearest integers
         if integer:
             stps = np.around(stps).astype(int)
-        
+
         # Calculate the cumulative sum of the steps to generate the walk
         walk = np.cumsum(stps, axis=0)
 
@@ -261,11 +279,10 @@ def simulate_miniscope_data(
     zero_thres: float = 1e-8,
     chk_size: int = 1000,
 ) -> xr.DataArray:
-
     """
     Generates a simulated miniscope dataset that mimics the key properties of real miniscope data.
 
-    This function simulates the spatiotemporal fluorescence signals of neurons and background components 
+    This function simulates the spatiotemporal fluorescence signals of neurons and background components
     by generating and then combining spatial footprints (Gaussian) and temporal traces (exponential) using
     user-defined parameters. It then adds spatial shifts to simulate motion artifacts, injects Gaussian noise, applies a linear
     transformation to adjust the signal and noise levels, and clips pixel values to an 8-bit range.
@@ -338,7 +355,7 @@ def simulate_miniscope_data(
     if pad > 20:
         warnings.warn("maximum shift is {}, clipping".format(pad))
         shifts = shifts.clip(-20, 20)
-    
+
     # If no cell centroid positions are provided, randomly generate them within the frame, leaving some padding around the edges.
     if cent is None:
         cent = np.stack(
@@ -348,7 +365,7 @@ def simulate_miniscope_data(
             ],
             axis=1,
         )
-        
+
     # Generate spatial footprints for each cell using a Gaussian model.
     A = gauss_cell(
         2 * pad + hh,
@@ -358,21 +375,21 @@ def simulate_miniscope_data(
         sz_min=sz_min,
         cent=cent,
     )
-    
+
     # Convert the footprints into a sparse matrix representation for efficient computation.
     A = darr.from_array(
         sparse.COO.from_numpy(np.where(A > zero_thres, A, 0)), chunks=-1
     )
-    
+
     # Generate calcium traces for each cell. The temporal dynamics are modeled as an exponential decay (due to calcium indicator) modulated by a Poisson spike train.
     traces = [exp_trace(ff, tmp_pfire, tmp_tau_d, tmp_tau_r) for _ in range(len(cent))]
-    
+
     # Convert the calcium traces and spike trains into Dask arrays for efficient computation.
     C = darr.from_array(np.stack([t[0] for t in traces]).T, chunks=(chk_size, -1))
     S = darr.from_array(np.stack([t[1] for t in traces]).T, chunks=(chk_size, -1))
-    
+
     # Generate centroids for background noise
-    
+
     cent_bg = np.stack(
         [
             np.random.randint(pad, pad + hh, size=bg_nsrc),
@@ -380,7 +397,7 @@ def simulate_miniscope_data(
         ],
         axis=1,
     )
-    
+
     # Generate spatial footprints for the background noise sources using a Gaussian model.
     A_bg = gauss_cell(
         2 * pad + hh,
@@ -390,12 +407,12 @@ def simulate_miniscope_data(
         sz_min=sz_min,
         cent=cent_bg,
     )
-    
+
     # Convert the footprints for the background noise sources into a sparse matrix representation for efficient computation.
     A_bg = darr.from_array(
         sparse.COO.from_numpy(np.where(A_bg > zero_thres, A_bg, 0)), chunks=-1
     )
-    
+
     # Generate temporal dynamics for the background noise sources using a random walk model.
     C_bg = darr.from_array(
         random_walk(
@@ -410,11 +427,28 @@ def simulate_miniscope_data(
         ),
         chunks=(chk_size, -1),
     )
-    
+
     # Compute the simulated calcium imaging video by multiplying the spatial footprints with the temporal dynamics and adding the result for all cells and background noise sources.
-    Y = darr.blockwise(computeY, "fhw", A, "uhw", C, "fu", A_bg, "bhw", C_bg, "fb", shifts.data, "fs",
-        dtype=np.uint8, sig_scale=sig_scale, noise_scale=0.1, post_offset=post_offset, post_gain=post_gain)
-    
+    Y = darr.blockwise(
+        computeY,
+        "fhw",
+        A,
+        "uhw",
+        C,
+        "fu",
+        A_bg,
+        "bhw",
+        C_bg,
+        "fb",
+        shifts.data,
+        "fs",
+        dtype=np.uint8,
+        sig_scale=sig_scale,
+        noise_scale=0.1,
+        post_offset=post_offset,
+        post_gain=post_gain,
+    )
+
     # Remove the padding around the edges of the video if it was added before.
     if pad == 0:
         pad = None
@@ -429,17 +463,25 @@ def simulate_miniscope_data(
         coords={"frame": fs, "height": hs, "width": ws},
         name="Simulated Miniscope Data",
     )
-    
+
     # time = fs / sampling_rate
     # Y = Y.expand_dims(time=time, axis=0) # is this the correct way to add a redundant dim?
 
     # Return simulated data
-    return Y #, A, C, S, shifts, time
+    return Y  # , A, C, S, shifts, time
 
 
-def computeY(A: List[np.ndarray], C: np.ndarray, A_bg: List[np.ndarray], C_bg: np.ndarray, 
-              shifts: List[np.ndarray], sig_scale: float, noise_scale: float, 
-              post_offset: float, post_gain: float) -> np.ndarray:
+def computeY(
+    A: List[np.ndarray],
+    C: np.ndarray,
+    A_bg: List[np.ndarray],
+    C_bg: np.ndarray,
+    shifts: List[np.ndarray],
+    sig_scale: float,
+    noise_scale: float,
+    post_offset: float,
+    post_gain: float,
+) -> np.ndarray:
     """
     Computes a simulated imaging data array.
 
@@ -512,4 +554,3 @@ def computeY(A: List[np.ndarray], C: np.ndarray, A_bg: List[np.ndarray], C_bg: n
 
     # Return the data as an 8-bit unsigned integer array
     return Y.astype(np.uint8)
-
