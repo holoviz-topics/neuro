@@ -10,6 +10,7 @@ dependencies:
   - numpy
   - pandas
   - xarray
+  - neurodsp
   - ipykernel
   - pip:
     - -e ../_neurodatagen
