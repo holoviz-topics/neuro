@@ -134,9 +134,8 @@ This repo contains the development versions of workflows at two levels - element
 - **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this [project board](https://github.com/orgs/holoviz-topics/projects/1).
 - **Meeting minutes:** Logged in the [Wiki](https://github.com/holoviz-topics/neuro/wiki) whenever possible.
 - **Specifications:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes (in progress).
-- **Data:** To assist the development using real data (TODO: add link), some workflows utilize simple data simulators (in progress TODO: add link) to help benchmark across data and parameter space.
+- **Data:** To assist the development using real data (TODO: add link), some workflows utilize simple data generators to help benchmark across data and parameter space.
 - **Repo Structure and dev patterns:** 
-  - As the data generators can be useful to multiple workflows, they are kept as a separate and importable module:
     ```
     /_neurodatagen
         pyproject.toml
@@ -150,6 +149,7 @@ This repo contains the development versions of workflows at two levels - element
         /dev
             date_example-workflow_task.ipynb
     ```
+  - As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`neurodatagen`](./_neurodatagen))
   - Each workflow should have an `environment.yml` with which to create a conda env that will install the neurodatagen module in dev mode:
     ```
     name: neuro-example-workflow
@@ -162,7 +162,7 @@ This repo contains the development versions of workflows at two levels - element
         - -e ../_neurodatagen
     ```
   - Use the `dev` dir in each workflow as shared scratch space within the `main` branch. There is no expectation that anything here is maintained.
-  - Maintain `workflow_<workflow>.ipynb` as the latest (stable) version of the workflow.
+  - Maintain `workflow_<workflow>.ipynb` as the latest version of the workflow.
   - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
 
 ---
