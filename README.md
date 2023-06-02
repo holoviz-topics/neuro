@@ -15,7 +15,7 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
 - **Issue Identification and Resolution:** As part of ongoing development, identify and address any performance or user interface bottlenecks in the workflows to optimize their usage and effectiveness.
 - **Benchmarking and Testing Integration:** Host benchmarking work that involves the use of real and simulated data to assess the performance and functionality of the tools under relevant conditions.
 
-</details>
+</details> 
 
 <details>
 <summary> Slightly less urgent objectives: </summary>
@@ -33,15 +33,15 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
 - At a high-level: TODO
 - An incomplete task roadmap is visible on this project board view (TODO)
 
-</details> 
+</details>
   
 ### What are workflows?
 
-This repo contains the development versions of workflows at two levels - element and community. Element workflows are combined and adapted to become the building blocks for specialized scientific community workflows. The goal of an element workflow is to be generalizable while the goal of a community workflow is to be well-contextualized; both are directly useful to scientists.
+This repo contains the development versions of workflows that can be categorized into 'generalized' and 'specialized'. The goal of a general workflow is to be generalizable, and should therefore focus on domain-independent tools (Numpy, Pandas, Xarray, etc). Generalized workflows will become the building blocks for specialized workflows. Specialized workflows aim to focus on a specific context with no restraint on the use of domain-specific tools (MNE, Minian, etc).
 
 *(TODO: add/inherit short descriptions)*
 
-**Element Workflows**:
+**General Workflows**:
 
 <table align="center">
   <tr>
@@ -127,7 +127,7 @@ This repo contains the development versions of workflows at two levels - element
   </tr>
 </table>
 
-**Community Workflows**:
+**Specialized Workflows**:
 
 1. Spike Motif Viewer (planned, info, workflow, real data, simulated data)
 2. MNE EEG App (planned, info, workflow, real data, simulated data)
