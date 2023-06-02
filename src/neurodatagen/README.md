@@ -1,0 +1,3 @@
+# neurodatagen
+
+Neuroscience data generation

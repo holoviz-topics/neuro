@@ -137,3 +137,5 @@ dmypy.json
 **/data/*
 
 .vscode
+
+**/*.pt
