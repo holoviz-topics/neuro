@@ -12,5 +12,6 @@ dependencies:
   - xarray
   - ipykernel
   - jupyterlab
+  - pip
   - pip:
     - -e ../../src/neurodatagen

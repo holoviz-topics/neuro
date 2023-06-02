@@ -14,5 +14,6 @@ dependencies:
   - ffmpeg-python
   - jupyterlab
   - sparse
+  - pip
   - pip:
     - -e ../../src/neurodatagen

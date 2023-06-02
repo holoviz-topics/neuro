@@ -14,5 +14,6 @@ dependencies:
   - mne
   - neurodsp
   - jupyterlab
+  - pip
   - pip:
     -e ../../src/neurodatagen
