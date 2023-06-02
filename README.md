@@ -15,7 +15,7 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
 - **Issue Identification and Resolution:** As part of ongoing development, identify and address any performance or user interface bottlenecks in the workflows to optimize their usage and effectiveness.
 - **Benchmarking and Testing Integration:** Host benchmarking work that involves the use of real and simulated data to assess the performance and functionality of the tools under relevant conditions.
 
-</details>
+</details> 
 
 <details>
 <summary> Slightly less urgent objectives: </summary>
@@ -33,15 +33,15 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
 - At a high-level: TODO
 - An incomplete task roadmap is visible on this project board view (TODO)
 
-</details> 
+</details>
   
 ### What are workflows?
 
-This repo contains the development versions of workflows at two levels - element and community. Element workflows are combined and adapted to become the building blocks for specialized scientific community workflows. The goal of an element workflow is to be generalizable while the goal of a community workflow is to be well-contextualized; both are directly useful to scientists.
+This repo contains the development versions of workflows that can be categorized into 'generalized' and 'specialized'. The goal of a general workflow is to be generalizable, and should therefore focus on domain-independent tools (Numpy, Pandas, Xarray, etc). Generalized workflows will become the building blocks for specialized workflows. Specialized workflows aim to focus on a specific context with no restraint on the use of domain-specific tools (MNE, Minian, etc).
 
 *(TODO: add/inherit short descriptions)*
 
-**Element Workflows**:
+**General Workflows**:
 
 <table align="center">
   <tr>
@@ -127,7 +127,7 @@ This repo contains the development versions of workflows at two levels - element
   </tr>
 </table>
 
-**Community Workflows**:
+**Specialized Workflows**:
 
 1. Spike Motif Viewer (planned, info, workflow, real data, simulated data)
 2. MNE EEG App (planned, info, workflow, real data, simulated data)
@@ -139,36 +139,21 @@ This repo contains the development versions of workflows at two levels - element
 - **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this [project board](https://github.com/orgs/holoviz-topics/projects/1).
 - **Meeting minutes:** Logged in the [Wiki](https://github.com/holoviz-topics/neuro/wiki) whenever possible.
 - **Specifications:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes (in progress).
-- **Data:** To assist the development using real data (TODO: add link), some workflows utilize simple data generators to help benchmark across data and parameter space.
+- **Data:** To assist the development using real data (TODO: add link), some workflows utilize simple data generators to help benchmark across data and parameter space. As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`/src/neurodatagen`](./src/neurodatagen)).
 - **Repo Structure and dev patterns:** 
     ```
-    /_neurodatagen
-        pyproject.toml
-        /neurodatagen
-            __init__.py
-    /example_workflow
+    /workflows
+      /example1
+        readme_example1.md
+        workflow_example1.ipynb
         environment.yml
-        workflow_example-workflow.ipynb
-        readme_example-workflow.md
-        /assets
         /dev
             date_example-workflow_task.ipynb
     ```
-  - As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`neurodatagen`](./_neurodatagen))
-  - Each workflow should have an `environment.yml` with which to create a conda env that will install the neurodatagen module in dev mode:
-    ```
-    name: neuro-example-workflow
-    channels:
-    - conda-forge
-    dependencies:
-    - python=3.9
-    - pip
-    - pip:
-        - -e ../_neurodatagen
-    ```
-  - Use the `dev` dir in each workflow as shared scratch space within the `main` branch. There is no expectation that anything here is maintained.
-  - Maintain `workflow_<workflow>.ipynb` as the latest version of the workflow.
   - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
+  - Maintain `workflow_<workflow>.ipynb` as the latest version of the workflow.
+  - Each workflow should have an `environment.yml` with which to create a conda env that will install the `neurodatagen` module in dev mode.
+  - Use the `dev` dir in each workflow as shared scratch space within the `main` branch. There is no expectation that anything here is maintained.
 
 ---
 ## Who is behind this?
@@ -180,10 +165,10 @@ Funding:
 
 ---
 
-### Why Neuroscience?
+## Why Neuroscience?
 
 Multiple (probably all) HoloViz+Bokeh developers believe that helping people through the furthering of clinically impactful science is a worthy pursuit and in need of a data visualization boost.
 
-### Why HoloViz+Bokeh?
+## Why HoloViz+Bokeh?
 
 We hypothesize that the visualization within the process of working always benefits from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools provides the interactivity and shareability needed to support research as a collective action rather than a collection of solitary observations.
