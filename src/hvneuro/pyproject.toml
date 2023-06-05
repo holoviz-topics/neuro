@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hvneuro"
+version = "0.1.0a1"
+description = "Neuroscience visualization with HoloViz"
+authors = [
+  {name = "Demetris Roumis", email = "8qdo8efl3@mozmail.com"},
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "xarray",
+    "holoviews",
+    "panel",
+    "hvplot",
+    "datashader",
+    "bokeh",
+]
