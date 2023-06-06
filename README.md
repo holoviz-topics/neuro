@@ -129,9 +129,9 @@ This repo contains the development versions of workflows that can be categorized
 
 **Specialized Workflows**:
 
-1. Spike Motif Viewer [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
-2. MNE EEG App [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
-3. Minian CNMF App [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
+1. Spike Motif [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
+2. MNE Raw [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
+3. Minian CNMF [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
 
 ---
 ## Contributing
