@@ -37,110 +37,39 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
   
 ### What are workflows?
 
-This repo contains the development versions of workflows that can be categorized into 'generalized' and 'specialized'. The goal of a general workflow is to be generalizable, and should therefore focus on domain-independent tools (Numpy, Pandas, Xarray, etc). Generalized workflows will become the building blocks for specialized workflows. Specialized workflows aim to focus on a specific context with no restraint on the use of domain-specific tools (MNE, Minian, etc).
-
-*(TODO: add/inherit short descriptions)*
+This repository contains developmental versions of workflows, which can be categorized into two types: **generalized** and **specialized**. Generalized workflows aim to be broadly applicable and primarily utilize domain-independent tools such as Numpy, Pandas, Xarray, and others. These generalized workflows serve as the foundational building blocks for specialized workflows. On the other hand, specialized workflows are designed to cater to specific contexts and have no limitations on the use of domain-specific tools like MNE, Minian, and more.
 
 **Generalized Workflows**:
 
-<table align="center">
-  <tr>
-  <td>
-      <!-- Title -->
-      <h3>Ephys Viewer</h3>
-      <!-- Thumbnail link to demo -->
-      <a href="./workflows/ephys-viewer/workflow_ephys-viewer.ipynb">
-        <img src="./workflows/ephys-viewer/assets/230524_ephys-viewer.png" alt="eeg-viewer" width="125"/>
-      </a>
-      <p>
-      <!-- Additional content -->
-      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
-      <p>
-      <a href="./workflows/ephys-viewer/readme_ephys-viewer.md">readme</a>
-      <p>
-      <a href="./workflows/ephys-viewer/workflow_ephys-viewer.ipynb"> workflow</a>
-    </td>
+| Title | Modality | Thumbnail | Info & Links | Description |
+| --- | --- | --- | --- | --- |
+| EEG Viewer | <span style="color:#9cd4af">eeg</span> | <a href="./workflows/eeg-viewer/assets/230524_eeg-viewer.png"><img src="./workflows/eeg-viewer/assets/230524_eeg-viewer.png" alt="EEG Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/eeg-viewer/readme_eeg-viewer.md) <br> [workflow](./workflows/eeg-viewer/workflow_eeg-viewer.ipynb) | Synchronized examination of EEG  with stacked time-series, large data handling, scale bar, annotations, minimap , and signal grouping.
+| Video Viewer | <span style="color:#ffb3ba">calcium imaging</span> | <a href="./workflows/video-viewer/assets/230526_video-viewer.png"><img src="./workflows/video-viewer/assets/230526_video-viewer.png" alt="Video Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/video-viewer/readme_video-viewer.md) <br> [workflow](./workflows/video-viewer/workflow_video-viewer.ipynb) | Efficient visualization of large Miniscope calcium imaging movies with, playback controls, 2D annotation, scale bar, intensity histogram, and summary statistics. |
+| Ephys Viewer | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/ephys-viewer/assets/230524_ephys-viewer.png"><img src="./workflows/ephys-viewer/assets/230524_ephys-viewer.png" alt="Ephys Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/ephys-viewer/readme_ephys-viewer.md) <br> [workflow](./workflows/ephys-viewer/workflow_ephys-viewer.ipynb) | |
+| Waveform | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/waveform/assets/230524_waveform.png"><img src="./workflows/waveform/assets/230524_waveform.png" alt="Waveform" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/waveform/readme_waveform.md) <br> [workflow](./workflows/waveform/workflow_waveform.ipynb) | |
+| Spike Raster | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/spike-raster/assets/230524_spike-raster.png"><img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./spike-raster/readme_spike-raster.md) <br> [workflow](./spike-raster/workflow_spike-raster.ipynb) | |
 
-  <td>
-      <!-- Title -->
-      <h3>Waveform</h3>
-      <!-- Thumbnail link to demo -->
-      <a href="./workflows/waveform/workflow_waveform.ipynb">
-        <img src="./workflows/waveform/assets/230524_waveform.png" alt="waveform" width="125"/>
-      </a>
-      <p>
-      <!-- Additional content -->
-      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
-      <p>
-      <a href="./workflows/waveform/readme_waveform.md">readme</a>
-      <p>
-      <a href="./workflows/waveform/workflow_waveform.ipynb"> workflow</a>
-    </td>
-  <td>
-      <!-- Title -->
-      <h3>Spike Raster</h3>
-      <!-- Thumbnail link to demo -->
-      <a href="./workflows/spike-raster/workflow_spike-raster.ipynb">
-        <img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="spike-raster" width="125"/>
-      </a>
-      <p>
-      <!-- Additional content -->
-      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
-      <p>
-      <a href="./spike-raster/readme_spike-raster.md">readme</a>
-      <p>
-      <a href="./spike-raster/workflow_spike-raster.ipynb"> workflow</a>
-    </td>
-  <!-- </tr>
-  <tr> -->
-    <td>
-      <!-- Title -->
-      <h3>EEG Viewer</h3>
-      <!-- Thumbnail link to demo -->
-      <a href="./workflows/eeg-viewer/workflow_eeg-viewer.ipynb">
-        <img src="./workflows/eeg-viewer/assets/230524_eeg-viewer.png" 
-        alt="eeg-viewer" width="125"/>
-      </a>
-      <p>
-      <!-- Additional content -->
-      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
-      <p>
-      <a href="./workflows/eeg-viewer/readme_eeg-viewer.md">readme</a>
-      <p>
-      <a href="./workflows/eeg-viewer/workflow_eeg-viewer.ipynb"> workflow</a>
-    </td>
-    <td>
-      <!-- Title -->
-      <h3>Video Viewer</h3>
-      <!-- Thumbnail link to demo -->
-      <a href="./workflows/video-viewer/workflow_video-viewer.ipynb">
-        <img src="./workflows/video-viewer/assets/230526_video-viewer.png" alt="video-viewer" width="125"/>
-      </a>
-      <p>
-      <!-- Additional content -->
-      <img src="https://img.shields.io/badge/status-in%20progress-orange)"/>
-      <p>
-      <a href="./workflows/video-viewer/readme_video-viewer.md">readme</a>
-      <p>
-      <a href="./workflows/video-viewer/workflow_video-viewer.ipynb"> workflow</a>
-    </td>
-  </tr>
-</table>
+
+
+- Linked selection from sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- Streaming data [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 
 **Specialized Workflows**:
 
-1. Spike Motif [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
-2. MNE Raw [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
-3. Minian CNMF [![status: todo](https://img.shields.io/badge/status-todo-purple), readme, workflow]
+- Spike Motif [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- MNE Raw [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- Minian CNMF [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 
 ---
 ## Contributing
 
-- **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this [project board](https://github.com/orgs/holoviz-topics/projects/1).
+- **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this 
+[project board](https://github.com/orgs/holoviz-topics/projects/1).
+  - Abstracted project board tasks prefixed with '`GOAL:`' are for roadmap generation and hours estimation.
 - **Meeting minutes:** Logged in the [Wiki](https://github.com/holoviz-topics/neuro/wiki) whenever possible.
 - **Specifications:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes (in progress).
-- **Data Generation:** To assist the development using real data (TODO: add link), some workflows utilize simple data generators to help benchmark across data and parameter space. As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`/src/neurodatagen`](./src/neurodatagen)).
-- **Visualization source code:** If there is visualization code or utilities that we want to live separate from the individual workflows, we can store them in [`/src/hvneuro`](./src/hvneuro). However, it's unclear whether this will be released as a new package, incorporated into existing packages, or live in particular workflows. TBD 
+- **Data Generation:** To assist the development using real data, some workflows utilize simple data generators to help benchmark across data and parameter space. As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`/src/neurodatagen`](./src/neurodatagen)).
+- **Visualization source code:** If there is visualization code or utilities that we want to live separate from the individual workflows, we can store them in [`/src/hvneuro`](./src/hvneuro) for now. However, it's unclear whether this will be released as a new package, incorporated into existing libraries, or live in particular workflows. TBD 
 - **Repo Structure and dev patterns:** 
     ```
     /workflows
