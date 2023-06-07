@@ -30,8 +30,15 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-
 <details>
 <summary> Roadmap: </summary>
 
-- At a high-level: TODO
-- An incomplete task roadmap is visible on this project board view (TODO)
+- High-level summary: Our current grant period is through 2024, but we want to have a
+  first pass of prioritized improvements for generalized workflows to disseminate for
+  feedback **within** Q4 2023. The remainder of Q4 2023 and all of 2024 will be for
+  iterating on feedback, developing the specialized workflows, demonstrating biomedical
+  use-cases, collaborating lab support, educational activities, and as time permits -
+  wishlist features and new collaborations.
+- A living task-goal roadmap is visible on [this project board
+  view](https://github.com/orgs/holoviz-topics/projects/1/views/3) - currently through Q3
+  and early Q4 2023.
 
 </details>
   
@@ -43,15 +50,14 @@ This repository contains developmental versions of workflows, which can be categ
 
 | Title | Modality | Thumbnail | Info & Links | Description |
 | --- | --- | --- | --- | --- |
-| EEG Viewer | <span style="color:#9cd4af">eeg</span> | <a href="./workflows/eeg-viewer/assets/230524_eeg-viewer.png"><img src="./workflows/eeg-viewer/assets/230524_eeg-viewer.png" alt="EEG Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/eeg-viewer/readme_eeg-viewer.md) <br> [workflow](./workflows/eeg-viewer/workflow_eeg-viewer.ipynb) | Synchronized examination of EEG  with stacked time-series, large data handling, scale bar, annotations, minimap , and signal grouping.
-| Video Viewer | <span style="color:#ffb3ba">calcium imaging</span> | <a href="./workflows/video-viewer/assets/230526_video-viewer.png"><img src="./workflows/video-viewer/assets/230526_video-viewer.png" alt="Video Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/video-viewer/readme_video-viewer.md) <br> [workflow](./workflows/video-viewer/workflow_video-viewer.ipynb) | Efficient visualization of large Miniscope calcium imaging movies with, playback controls, 2D annotation, scale bar, intensity histogram, and summary statistics. |
-| Ephys Viewer | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/ephys-viewer/assets/230524_ephys-viewer.png"><img src="./workflows/ephys-viewer/assets/230524_ephys-viewer.png" alt="Ephys Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/ephys-viewer/readme_ephys-viewer.md) <br> [workflow](./workflows/ephys-viewer/workflow_ephys-viewer.ipynb) | |
-| Waveform | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/waveform/assets/230524_waveform.png"><img src="./workflows/waveform/assets/230524_waveform.png" alt="Waveform" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/waveform/readme_waveform.md) <br> [workflow](./workflows/waveform/workflow_waveform.ipynb) | |
-| Spike Raster | <span style="color:#a4d7e1">ephys</span> | <a href="./workflows/spike-raster/assets/230524_spike-raster.png"><img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./spike-raster/readme_spike-raster.md) <br> [workflow](./spike-raster/workflow_spike-raster.ipynb) | |
+| EEG Viewer | <span style="color:#9cd4af"><a href="https://github.com/holoviz-topics/neuro/wiki/EEG-notes">eeg</a></span> | <a href="./workflows/eeg-viewer/assets/230524_eeg-viewer.png"><img src="./workflows/eeg-viewer/assets/230524_eeg-viewer.png" alt="EEG Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/eeg-viewer/readme_eeg-viewer.md) <br> [workflow](./workflows/eeg-viewer/workflow_eeg-viewer.ipynb) | Synchronized examination of EEG  with stacked time-series, large data handling, scale bar, annotations, minimap , and signal grouping.
+| Video Viewer | <span style="color:#ffb3ba"><a href="https://github.com/holoviz-topics/neuro/wiki/Calcium-Imaging-notes">calcium imaging</a></span> | <a href="./workflows/video-viewer/assets/230526_video-viewer.png"><img src="./workflows/video-viewer/assets/230526_video-viewer.png" alt="Video Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/video-viewer/readme_video-viewer.md) <br> [workflow](./workflows/video-viewer/workflow_video-viewer.ipynb) | Efficient visualization of large Miniscope calcium imaging movies with, playback controls, 2D annotation, scale bar, intensity histogram, and summary statistics. |
+| Ephys Viewer | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/ephys-viewer/assets/230524_ephys-viewer.png"><img src="./workflows/ephys-viewer/assets/230524_ephys-viewer.png" alt="Ephys Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/ephys-viewer/readme_ephys-viewer.md) <br> [workflow](./workflows/ephys-viewer/workflow_ephys-viewer.ipynb) | |
+| Waveform | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/waveform/assets/230524_waveform.png"><img src="./workflows/waveform/assets/230524_waveform.png" alt="Waveform" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/waveform/readme_waveform.md) <br> [workflow](./workflows/waveform/workflow_waveform.ipynb) | |
+| Spike Raster | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/spike-raster/assets/230524_spike-raster.png"><img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./spike-raster/readme_spike-raster.md) <br> [workflow](./spike-raster/workflow_spike-raster.ipynb) | |
 
-
-
-- Linked selection from sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- Linked eeg-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- Linked ephys-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 - Streaming data [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 
 **Specialized Workflows**:
@@ -65,7 +71,7 @@ This repository contains developmental versions of workflows, which can be categ
 
 - **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this 
 [project board](https://github.com/orgs/holoviz-topics/projects/1).
-  - Abstracted project board tasks prefixed with '`GOAL:`' are for roadmap generation and hours estimation.
+  - Abstracted project board tasks prefixed with 'GOAL:' are for roadmap generation and hours estimation.
 - **Meeting minutes:** Logged in the [Wiki](https://github.com/holoviz-topics/neuro/wiki) whenever possible.
 - **Specifications:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes (in progress).
 - **Data Generation:** To assist the development using real data, some workflows utilize simple data generators to help benchmark across data and parameter space. As the data generators/simulators can be useful to multiple workflows, they are kept as a separate and importable module ([`/src/neurodatagen`](./src/neurodatagen)).
