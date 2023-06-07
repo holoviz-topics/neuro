@@ -1,6 +1,6 @@
 # EEG Viewer
 
-> Status: :warning: in progress
+![Status](https://img.shields.io/badge/status-in%20progress-orange)
 
 ## Summary
 ---
@@ -26,7 +26,7 @@ This EEG-Viewer workflow will involve a series of stacked time-series subplots w
 - [`large-data-handling`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22)) (lead: `@ianthomas23`): Benchmark and solve large data handling
   - This is high priority because there are already feature-rich browser-based EEG viewers, but they cannot handle large datasets very well.
   - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes#230515-large-data-handling)
-  - Note: large data handling is even more relevant for ca-imaging and ephys, where the typical data sizes are much larger than EEG
+  - Note: Handling larger-than-memory data is more relevant for ca-imaging and ephys, where the typical data sizes are much larger than EEG.
 - [`subcoordinates`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*subcoordinates*%22)) (lead: `@mattpap`): Stacked traces on Y axis sub-coordinates
   - Avoid having to add an offset to the data values in order plot stacked on the same canvas
 - [`scale-bar`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22)) (lead: `@mattpap`)
@@ -44,31 +44,42 @@ This EEG-Viewer workflow will involve a series of stacked time-series subplots w
 - DC removal
 - drag to rearrange channel display order
 
+## Primary Plot Specifications
+---
+
+**Axis specs:**
+
+- x
+  - type, label: continuous, `time`
+  - typical resolution: 2 ms/sample (500 Hz)
+  - typical extent: hours
+- y
+  - type, label: subcoordinate continuous, `channel(microvolt)`
+  - typical resolution: ± 100 µV / channel
+  - typical extent: ~ 64 channels
+
 ## Data
 ---
 
-### Key Specifications
-
+### Format, size and other specs
+- See Wiki > [EEG notes > Data](https://github.com/holoviz-topics/neuro/wiki/EEG-notes#data)
 
 ### Generated Data
 - `neurodatagen.eeg`
-  - `generate_eeg_powerlaw`: Generate synthetic EEG data as power law time series.
-
-  <details>
-    <summary>Example:</summary>
+  - `generate_eeg_powerlaw`: Generate synthetic EEG data (np.ndarray) as power law time series.
     ```python
+    # Example usage:
+    from neurodatagen.eeg import generate_eeg_powerlaw
 
-      from neurodatagen.eeg import generate_eeg_powerlaw
+    n_channels = 20
+    n_seconds = 10
+    fs = 512
 
-      n_channels = 20
-      n_seconds = 10
-      fs = 512
-
-      data, time, channels = generate_eeg_powerlaw(n_channels, n_seconds, fs)
+    data, time, channels = generate_eeg_powerlaw(n_channels, n_seconds, fs)
     ```
 
 ### Real Data
-- TODO. [see EEG notes](https://github.com/holoviz-topics/neuro/wiki/EEG-notes#listssources-of-real-data)
+- See Wiki > [EEG notes > Real Data](https://github.com/holoviz-topics/neuro/wiki/EEG-notes#listssources-of-real-data)
 
 ## Future Directions
 ---

@@ -282,12 +282,15 @@ def simulate_miniscope_data(
     chk_size: int = 1000,
 ) -> xr.DataArray:
     """
-    Generates a simulated miniscope dataset that mimics the key properties of real miniscope data.
+    Generates a simulated miniscope dataset that mimics the key properties of real
+    miniscope data.
 
-    This function simulates the spatiotemporal fluorescence signals of neurons and background components
-    by generating and then combining spatial footprints (Gaussian) and temporal traces (exponential) using
-    user-defined parameters. It then adds spatial shifts to simulate motion artifacts, injects Gaussian noise, applies a linear
-    transformation to adjust the signal and noise levels, and clips pixel values to an 8-bit range.
+    This function simulates the spatiotemporal fluorescence signals of neurons and
+    background components by generating and then combining spatial footprints (Gaussian)
+    and temporal traces (exponential) using user-defined parameters. It then adds
+    spatial shifts to simulate motion artifacts, injects Gaussian noise, applies a
+    linear transformation to adjust the signal and noise levels, and clips pixel values
+    to an 8-bit range.
 
     Parameters
     ----------
@@ -328,7 +331,8 @@ def simulate_miniscope_data(
     cent : np.ndarray, optional
         Centroid of the Gaussian cell. If not specified, a random centroid is generated.
     zero_thres : float, optional
-        Threshold for zeroing out elements in the sparse matrix representation. Default is 1e-8.
+        Threshold for zeroing out elements in the sparse matrix representation. Default
+        is 1e-8.
     chk_size : int, optional
         Chunk size for data array computations. Default is 1000.
 
