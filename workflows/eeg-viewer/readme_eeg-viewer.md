@@ -4,7 +4,10 @@
 
 ## Summary
 ---
-This EEG-Viewer workflow will involve a series of stacked time-series subplots with a shared X-axis representing time. Each subplot is intended to correspond to a distinct EEG channel, with the goal of facilitating simultaneous, synchronized examination of the activity recorded from different regions of the brain. Key proposed features:
+This EEG-Viewer workflow will involve a series of stacked time-series subplots with a
+shared X-axis representing time. Each subplot is intended to correspond to a distinct
+EEG channel, with the goal of facilitating simultaneous, synchronized examination of the
+activity recorded from different regions of the human brain. Key proposed features:
 
 - **Handling large datasets:** Benchmarking and providing solutions for large data handling challenges to ensure smooth performance.
 
