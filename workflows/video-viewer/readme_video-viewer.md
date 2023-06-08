@@ -26,8 +26,7 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
 - [`large-data-handling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22) (lead: `@ianthomas23`): Benchmark and solve large data handling
   - This has been communicated as the primary pain point for miniscope users
   - The combined raw movies from a single recording can easily exceed available memory for typical laptops.
-  - [Large data handling meeting
-    notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes#230515-large-data-handling)
+  - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes#230515-large-data-handling)
   - [Minian tips & tricks](https://minian.readthedocs.io/en/stable/tips/index.html) has
     good info about their data model and performance pattern (.avi > xarray zarr > dask array)
 - [`player-widget`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*player-widget*%22) (lead: `@droumis`)

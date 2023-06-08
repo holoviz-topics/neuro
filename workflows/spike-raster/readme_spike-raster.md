@@ -34,9 +34,10 @@ large-scale neuronal spike time data with the following features and tasks:
 ---
 - [`large-data-handling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22) (lead: `@ianthomas23`): Benchmark and solve large data handling
   - This is much more forgiving with a spike-raster compared to e.g. a raw ephys viewer
-    because the spike raster data can be represented as a sparse or ragged array (many more bins
-    are without any spikes) and there is rarely any good reason to have a resolution
-    beyond 1 ms/bin due to the [neural refractory period](https://en.wikipedia.org/wiki/Refractory_period_(physiology)#:~:text=of%20atrial%20fibrillation.-,Neuronal%20refractory%20period,-%5Bedit%5D).
+    because the spike raster data can be represented as a sparse or ragged array (many
+    more bins are without any spikes) and there is rarely any good reason to have a
+    resolution beyond 1 ms/bin due to the [neural refractory
+    period](https://en.wikipedia.org/wiki/Refractory_period_(physiology)#:~:text=of%20atrial%20fibrillation.-,Neuronal%20refractory%20period,-%5Bedit%5D).
   - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/
 
 - [`zoom-marker-scaling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*zoom-marker-scaling*%22) : (lead: `@droumis`)

@@ -34,18 +34,18 @@ activity. Key proposed features:
 ## Prioritized Tasks (Features/Bottlenecks)
 ---
 
-- [`large-data-handling`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22)) (lead: `@ianthomas23`): Benchmark and solve large data handling
+- [`large-data-handling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22) (lead: `@ianthomas23`): Benchmark and solve large data handling
   - This is high priority because almost all ephys data has a very high sampling rate
     (30KHz) and (in the last few years) many channels (>100).
   - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes#230515-large-data-handling)
-- [`subcoordinates`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*subcoordinates*%22)) (lead: `@mattpap`): Stacked traces on Y axis sub-coordinates
+- [`subcoordinates`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*subcoordinates*%22) (lead: `@mattpap`): Stacked traces on Y axis sub-coordinates
   - Avoid having to add an offset to the data values in order plot stacked on the same canvas
-- [`scale-bar`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22)) (lead: `@mattpap`)
-- [`annotation`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*annotation*%22)) (lead: `@hoxbro` and/or `@jlstevens`)
+- [`scale-bar`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22) (lead: `@mattpap`)
+- [`annotation`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*annotation*%22) (lead: `@hoxbro` and/or `@jlstevens`)
   - potential extension: Bokeh toolbar UI
 - [`minimap`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*minimap*%22) (lead: `@droumis`, helped by `@ianthomas23`)
-- [`channel-type-grouping`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*channel-type-grouping*%22)) Channel-type grouping with different sampling and amplitude range
-- [`grouped-y-scaling`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*grouped-y-scaling*%22)): Manual scaling of Y axis per channel or per channel group
+- [`channel-type-grouping`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*channel-type-grouping*%22) Channel-type grouping with different sampling and amplitude range
+- [`grouped-y-scaling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*grouped-y-scaling*%22): Manual scaling of Y axis per channel or per channel group
   - channel scroll-scaling of hovered channel
   - channel scroll-scaling of hovered channel Y-axis channel group
 
