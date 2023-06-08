@@ -4,7 +4,11 @@
 
 ### What is this repo?
 
-Our ultimate goal is to facilitate the creation of fully open, reproducible, OS-independent, browser-based workflows for biomedical research. In support of this goal, this repository is the development ground for optimization and demonstration of HoloViz and Bokeh tools within the realm of neuroscience.
+Our ultimate goal is to facilitate the creation of fully open, reproducible,
+OS-independent, browser-based workflows for biomedical research primarily using
+sustainable, domain-independent visualization tools. In support of this
+goal, this repository is the development ground for optimization and demonstration of
+HoloViz and Bokeh tools within the realm of neuroscience.
 
 <details>
 <summary> Urgent objectives: </summary>
@@ -53,18 +57,27 @@ This repository contains developmental versions of workflows, which can be categ
 | EEG Viewer | <span style="color:#9cd4af"><a href="https://github.com/holoviz-topics/neuro/wiki/EEG-notes">eeg</a></span> | <a href="./workflows/eeg-viewer/assets/230524_eeg-viewer.png"><img src="./workflows/eeg-viewer/assets/230524_eeg-viewer.png" alt="EEG Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/eeg-viewer/readme_eeg-viewer.md) <br> [workflow](./workflows/eeg-viewer/workflow_eeg-viewer.ipynb) | Synchronized examination of EEG  with stacked time-series, large data handling, scale bar, annotations, minimap, and signal grouping.
 | Video Viewer | <span style="color:#ffb3ba"><a href="https://github.com/holoviz-topics/neuro/wiki/Calcium-Imaging-notes">calcium imaging</a></span> | <a href="./workflows/video-viewer/assets/230526_video-viewer.png"><img src="./workflows/video-viewer/assets/230526_video-viewer.png" alt="Video Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/video-viewer/readme_video-viewer.md) <br> [workflow](./workflows/video-viewer/workflow_video-viewer.ipynb) | Efficient visualization of large Miniscope calcium imaging movies with, playback controls, 2D annotation, scale bar, intensity histogram, and summary statistics. |
 | Ephys Viewer | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/ephys-viewer/assets/230524_ephys-viewer.png"><img src="./workflows/ephys-viewer/assets/230524_ephys-viewer.png" alt="Ephys Viewer" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/ephys-viewer/readme_ephys-viewer.md) <br> [workflow](./workflows/ephys-viewer/workflow_ephys-viewer.ipynb) | Synchronized examination of multielectrode intracranial extracellular electrophysiology (ephys) with all the relevant goodies of the EEG viewer.|
-| Waveform | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/waveform/assets/230524_waveform.png"><img src="./workflows/waveform/assets/230524_waveform.png" alt="Waveform" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/waveform/readme_waveform.md) <br> [workflow](./workflows/waveform/workflow_waveform.ipynb) | |
-| Spike Raster | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/spike-raster/assets/230524_spike-raster.png"><img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./spike-raster/readme_spike-raster.md) <br> [workflow](./spike-raster/workflow_spike-raster.ipynb) | |
+| Waveform | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/waveform/assets/230524_waveform.png"><img src="./workflows/waveform/assets/230524_waveform.png" alt="Waveform" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./workflows/waveform/readme_waveform.md) <br> [workflow](./workflows/waveform/workflow_waveform.ipynb) | Oscilloscope-style display of action potential waveform snippets |
+| Spike Raster | <span style="color:#a4d7e1"><a href="https://github.com/holoviz-topics/neuro/wiki/Electrophysiology-notes">ephys</a></span> | <a href="./workflows/spike-raster/assets/230524_spike-raster.png"><img src="./workflows/spike-raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [readme](./spike-raster/readme_spike-raster.md) <br> [workflow](./spike-raster/workflow_spike-raster.ipynb) | Efficient visualization of large-scale neuronal spike time data, with a simple API, aggregate views of spike counts, and spike-level metadata management |
 
+- Multimodal - visualizing and aligning ca-imaging with simultaneously recorded (but
+  differently sampled) timeseries like  EEG, EMG, and/or behavior. Alternatively,
+  visualizing behavioral video (eye tracking, maze running) with timeseries data. [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 - Linked eeg-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 - Linked ephys-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
-- Streaming data [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 
 **Specialized Workflows**:
 
 - Spike Motif [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 - MNE Raw [![status: todo](https://img.shields.io/badge/status-todo-purple)]
 - Minian CNMF [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+
+**Incubation/Wishlist**:
+
+- General: Streaming data - extend the ephys, eeg, and/or video viewer workflows to
+  display live streaming data. [![status: todo](https://img.shields.io/badge/status-idea-blue)]
+- Specialized: CNMF Temporal update parameter exploration app long timeseries
+  improvement [![status: todo](https://img.shields.io/badge/status-idea-blue)]
 
 ---
 ## Contributing
