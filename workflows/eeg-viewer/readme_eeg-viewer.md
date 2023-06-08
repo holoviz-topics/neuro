@@ -36,7 +36,7 @@ activity recorded from different regions of the human brain. Key proposed featur
 - [`annotation`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*annotation*%22)) (lead: `@hoxbro` and/or `@jlstevens`)
   - potential extension: Bokeh toolbar UI
 - [`minimap`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*minimap*%22) (lead: `@droumis`, helped by `@ianthomas23`)
-- [`channel-type-grouping`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*signal-grouping*%22)) Channel-type grouping with different sampling and amplitude range
+- [`channel-type-grouping`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*channel-type-grouping*%22)) Channel-type grouping with different sampling and amplitude range
 - [`grouped-y-scaling`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*grouped-y-scaling*%22)): Manual scaling of Y axis per channel or per channel group
   - channel scroll-scaling of hovered channel
   - channel scroll-scaling of hovered channel Y-axis channel group

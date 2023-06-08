@@ -30,13 +30,13 @@ waveform snippets.
 ## Prioritized Tasks (Features/Bottlenecks)
 ---
 
-- [`large-data-handling`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22)) (lead: `@ianthomas23`): Benchmark and solve large data handling
+- [`large-data-handling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*large-data-handling*%22) (lead: `@ianthomas23`): Benchmark and solve large data handling
   - The unique challenge here is overlaying a very large number of lines
 
-- [`scale-bar`]((https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22))
+- [`scale-bar`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22)
   (lead: `@mattpap`)
 
-- [`waveform-color-group`](): coloring per neuron/unit/group
+- [`waveform-color-group`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*waveform-color-group*%22): coloring per neuron/unit/group with datashading and interactivity
 
 
 **Wishlist/Ideas:**
