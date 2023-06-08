@@ -42,6 +42,7 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
 - [`summary-stats`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*summary-stats*%22): Timeseries of summary statistics (e.g. mean, max, min) linked to playback
 
 **Wishlist/Ideas:**
+- Playback of large raw movies files like .avi (instead of from zarr/dask/xarray)
 - slice viewer + colormapped transparency
 
 ## Primary Plot Specifications
