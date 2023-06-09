@@ -62,22 +62,24 @@ This repository contains developmental versions of workflows, which can be categ
 
 - Multimodal - visualizing and aligning ca-imaging with simultaneously recorded (but
   differently sampled) timeseries like  EEG, EMG, and/or behavior. Alternatively,
-  visualizing behavioral video (eye tracking, maze running) with timeseries data. [![status: todo](https://img.shields.io/badge/status-todo-purple)]
-- Linked eeg-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
-- Linked ephys-sensor layout [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+  visualizing behavioral video (eye tracking, maze running) with timeseries data. ![status: todo](https://img.shields.io/badge/status-todo-purple)
+- Linked eeg-sensor layout ![status: todo](https://img.shields.io/badge/status-todo-purple)
+- Linked ephys-sensor layout ![status: todo](https://img.shields.io/badge/status-todo-purple)
 
 **Specialized Workflows**:
 
-- Spike Motif [![status: todo](https://img.shields.io/badge/status-todo-purple)]
-- MNE Raw [![status: todo](https://img.shields.io/badge/status-todo-purple)]
-- Minian CNMF [![status: todo](https://img.shields.io/badge/status-todo-purple)]
+- Spike Motif ![status: todo](https://img.shields.io/badge/status-todo-purple)
+- MNE Raw ![status: todo](https://img.shields.io/badge/status-todo-purple)
+- Minian CNMF ![status: todo](https://img.shields.io/badge/status-todo-purple)
 
+---
 **Incubation/Wishlist**:
 
 - General: Streaming data - extend the ephys, eeg, and/or video viewer workflows to
-  display live streaming data. [![status: todo](https://img.shields.io/badge/status-idea-blue)]
+  display live streaming data. ![status: idea](https://img.shields.io/badge/status-idea-blue)
+- General: Videos/Timeseries recorder ![status: idea](https://img.shields.io/badge/status-idea-blue)
 - Specialized: CNMF Temporal update parameter exploration app long timeseries
-  improvement [![status: todo](https://img.shields.io/badge/status-idea-blue)]
+  improvement ![status: idea](https://img.shields.io/badge/status-idea-blue)
 
 ---
 ## Contributing
