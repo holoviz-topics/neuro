@@ -38,7 +38,7 @@ large-scale neuronal spike time data with the following features and tasks:
     more bins are without any spikes) and there is rarely any good reason to have a
     resolution beyond 1 ms/bin due to the [neural refractory
     period](https://en.wikipedia.org/wiki/Refractory_period_(physiology)#:~:text=of%20atrial%20fibrillation.-,Neuronal%20refractory%20period,-%5Bedit%5D).
-  - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/
+  - [Large data handling meeting notes](https://github.com/holoviz-topics/neuro/wiki/)
 
 - [`zoom-marker-scaling`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*zoom-marker-scaling*%22) : (lead: `@droumis`)
   - This is a tension between APIs.. we can use hv.Spikes but then have to use a loop to
@@ -54,7 +54,7 @@ large-scale neuronal spike time data with the following features and tasks:
 - [`motif-grouping`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*motif-grouping*%22): (lead: `@droumis`): Simulate spike time grouping based on motifs
 
 **Wishlist/Ideas:**
-
+- [multiindex support of pandas in HoloViews](https://github.com/holoviz/holoviews/issues/2537)
 
 ## Primary Plot Specifications
 ---
