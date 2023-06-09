@@ -119,6 +119,8 @@ This work is a collaboration between developers and scientists, and some develop
 Funding:
 - 2023 - 2024: Chan Zuckerberg Initiative. Learn more in the [grant announcement](https://blog.bokeh.org/announcing-czi-funding-for-bokeh-for-bioscience-5f74426c011a).
 
+## Need to contact us?
+- Project Lead: Demetris Roumis (@droumis on [Discord](https://discord.gg/X6Eq9CvZZn))
 ---
 
 ## Why Neuroscience?
