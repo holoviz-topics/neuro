@@ -42,7 +42,7 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
   - By examining and manipulating the histogram of an image, users can observe and manipulate the distribution of pixel intensities and identify patterns or characteristics in different tonal ranges.
 - [`summary-stats`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*summary-stats*%22):
   Timeseries of summary statistics (e.g. mean, max, min) linked to playback
-- ['slice-dim-views'](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*slice-dim-views*%22): linked views onto the frame-axis sides of the image stack
+- ['slice-dim'](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*slice-dim-views*%22): linked views onto the frame-axis sides of the image stack
 
 **Wishlist/Ideas:**
 - Playback of large raw movies files like .avi (instead of from zarr/dask/xarray)
