@@ -11,7 +11,9 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
 - **2D Annotation:** Marking and categorizing spatial regions of interest (e.g. neurons).
 - **Scale bar:** A visual reference for spatial scale.
 - **Intensity histogram:** Enabling examination and manipulation of image histograms for identifying patterns or characteristics.
-- **Summary statistics:** Providing timeseries of summary statistics (e.g., mean, max, min) linked to playback.
+- **Summary statistics:** Providing timeseries of summary statistics (e.g., mean, max,
+  min) linked to playback.
+- **Sliced Dimension Viewers:** Providing linked views onto the frame-axis sides of the image stack
 
 ## Links:
 ---
@@ -38,7 +40,9 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
 - [`scale-bar`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*scale-bar*%22) (lead: `@mattpap`):
 - [`intensity-hist`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*intensity-hist*%22):
   - By examining and manipulating the histogram of an image, users can observe and manipulate the distribution of pixel intensities and identify patterns or characteristics in different tonal ranges.
-- [`summary-stats`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*summary-stats*%22): Timeseries of summary statistics (e.g. mean, max, min) linked to playback
+- [`summary-stats`](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*summary-stats*%22):
+  Timeseries of summary statistics (e.g. mean, max, min) linked to playback
+- ['slice-dim-views'](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*slice-dim-views*%22): linked views onto the frame-axis sides of the image stack
 
 **Wishlist/Ideas:**
 - Playback of large raw movies files like .avi (instead of from zarr/dask/xarray)
