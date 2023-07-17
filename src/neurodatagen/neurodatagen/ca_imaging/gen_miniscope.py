@@ -280,6 +280,7 @@ def simulate_miniscope_data(
     cent: Optional[np.ndarray] = None,
     zero_thres: float = 1e-8,
     chk_size: int = 1000,
+    arr_name: str = "sim-miniscope",
 ) -> xr.DataArray:
     """
     Generates a simulated miniscope dataset that mimics the key properties of real
@@ -335,6 +336,8 @@ def simulate_miniscope_data(
         is 1e-8.
     chk_size : int, optional
         Chunk size for data array computations. Default is 1000.
+    arr_name : str, optional
+        Name of the data array. Default is 'sim-miniscope'.
 
     Returns
     -------
@@ -467,7 +470,7 @@ def simulate_miniscope_data(
         Y,
         dims=["frame", "height", "width"],
         coords={"frame": fs, "height": hs, "width": ws},
-        name="Simulated Miniscope Data",
+        name=arr_name,
     )
 
     # time = fs / sampling_rate
