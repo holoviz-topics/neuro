@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - holoviews
+  - holoviews>=1.17
   - hvplot
   - panel
   - datashader
