@@ -8,9 +8,9 @@ Benchmarks must be run from a clone of the `hvneuro` github repo. ASV creates an
 
 Example setup using `conda`:
 ```
-conda create -n hvneuro_asv
+conda create -n hvneuro_asv python=3.11
 conda activate hvneuro_asv
-pip install asv virtualenv
+conda install -c conda-forge asv virtualenv "nodejs>=18"
 ```
 
 # Running benchmarks
