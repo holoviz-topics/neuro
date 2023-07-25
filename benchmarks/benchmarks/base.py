@@ -23,15 +23,15 @@ class Base:
         if self._figure_id is None or len(msg.args) != 4:
             return
 
-        args = [arg.json_value() for arg in msg.args]
+        msg, figure_id, count, start_or_end = [arg.json_value() for arg in msg.args]
 
-        if args[0] == "PlotView._actual_paint" and args[1] == self._figure_id:
-            if args[3] == "start":
+        if msg == "PlotView._actual_paint" and figure_id == self._figure_id:
+            if start_or_end == "start":
                 # TODO: need to handle start of render if want to time a single render.
                 pass
-            elif args[3] == "end":
+            elif start_or_end == "end":
                 self.render_count += 1
-                count = int(args[1].json_value())
+                count = int(count)
                 if count != self.render_count:
                     raise RuntimeError(f"Mismatch in render count: {count} != {self.render_count}")
 
