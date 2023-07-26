@@ -139,3 +139,6 @@ dmypy.json
 .vscode
 
 **/*.pt
+
+# Benchmarks
+.asv/
