@@ -42,10 +42,10 @@ class Timeseries(Base):
 
     def setup(self, n: int, output_backend: str) -> None:
         bkapp_n = partial(bkapp, n=n, output_backend=output_backend)
-        self._playwright_setup(bkapp_n, catch_console=True)
+        self.playwright_setup(bkapp_n)
 
     def teardown(self, n: int, output_backend: str) -> None:
-        self._playwright_teardown()
+        self.playwright_teardown()
 
     def time_values(self, n: int, output_backend: str) -> None:
         button = self.page.get_by_role("button", name="run")

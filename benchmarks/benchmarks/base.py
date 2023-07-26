@@ -14,7 +14,8 @@ if TYPE_CHECKING:
 
 
 class Base:
-    def __init__(self):
+    def __init__(self, catch_console: bool = True):
+        self._catch_console = catch_console
         self._port = 5006
         self.render_count = -1
         self._figure_id = None  # Unique ID of the figure to grab the console messages of.
@@ -35,7 +36,7 @@ class Base:
                 if count != self.render_count:
                     raise RuntimeError(f"Mismatch in render count: {count} != {self.render_count}")
 
-    def _playwright_setup(self, bokeh_doc: Callable[[Document], None], catch_console: bool) -> None:
+    def playwright_setup(self, bokeh_doc: Callable[[Document], None]) -> None:
         # Playwright context manager needs to span multiple functions,
         # so manually call __enter__ and __exit__ methods.
         self._playwright_context_manager = sync_playwright()
@@ -57,11 +58,18 @@ class Base:
         # This raises an error if there is more than one figure in the Bokeh document.
         self._figure_id = doc.select_one(dict(type=Plot)).id
 
-        if catch_console:
+        if self._catch_console:
             self.page.on("console", self._console_callback)
 
-    def _playwright_teardown(self):
+    def playwright_teardown(self):
         self._figure_id = None
+        if self._catch_console:
+            self.page.remove_listener("console", self._console_callback)
+            self.render_count = -1
+            # Wait a few milliseconds for emitted console messages to be handled before closing
+            # browser. May need to increase this if Playwright complains that browser is closed.
+            self.page.wait_for_timeout(10)
+
         self._browser.close()
         self._server.stop()
         self._playwright_context_manager.__exit__(None, None, None)

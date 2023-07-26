@@ -18,12 +18,14 @@ conda install -c conda-forge asv virtualenv "nodejs>=18"
 To run all benchmarks:
 ```
 cd benchmarks
-asv run
+asv run -e
 ```
 
 The first time this is run it creates a machine file to store information about your machine.  Then a virtual environment is created and each benchmark is run multiple times to obtain a statistically valid benchmark time.
 
 The virtual environment contains `hvneuro` and its dependencies as defined in the top-level `pyproject.toml` file. It also contains `playwright`, the latest version of `chromium` as installed by `playwright`, and a particular branch of `bokeh` that contains extra code to record when the canvas is rendered. The latter is compiled by source and extra dependencies may be required for this to work on all test machines (to be determined).
+
+The `-e` flag catches and displays stderr after the benchmark results. This should be free of errors but may contain some warnings.
 
 # Viewing benchmark results
 
