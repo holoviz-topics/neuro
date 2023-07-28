@@ -1,0 +1,11 @@
+# File: catalog.yml
+sources:
+  mne_edf:
+    description: MNE sample EDF file
+    driver: intake.source.http.BasicHTTPSource
+    args:
+      urlpath: 'https://github.com/mne-tools/mne-testing-data/raw/master/EDF/test_edf_stim_resamp.edf'
+      cache:
+        - type: file
+          path: 'test_edf_stim_resamp.edf'
+          regex: '.*'
