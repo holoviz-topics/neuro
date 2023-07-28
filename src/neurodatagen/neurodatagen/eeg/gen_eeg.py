@@ -52,14 +52,28 @@ def generate_eeg_powerlaw(
         )
         scaled_noise[ch] = pl_noise * amplitude
 
-    time = np.arange(total_samples) / fs
+    # Add channel correlations
+    cov_matrix = np.eye(n_channels) + 0.5  # Identity matrix with some weighted correlation
+    correlated_noise = np.random.multivariate_normal(np.zeros(n_channels), cov_matrix, size=total_samples).T
+    correlated_noise *= amplitude / .1  # Scale the correlated noise
+    scaled_noise += correlated_noise
 
+    # Add blink artifacts
+    blink_rate = 1 / 2  # Average rate of 1 blink every 2 seconds
+    n_blinks = np.random.poisson(n_seconds * blink_rate)  # Number of blinks
+    blink_times = np.random.choice(total_samples, n_blinks, replace=False)  # Random times
+    for i in blink_times:
+        blink_samples = np.random.normal(size=fs//10)  # Blink lasts 100 ms
+        blink_samples *= np.hanning(len(blink_samples))  # Taper blink onset/offset
+        blink_samples *= amplitude / .04  # scaled by amplitude
+        scaled_noise[0:n_channels//4, i:i + len(blink_samples)] += blink_samples # apply to a quart of the channels
+
+    time = np.arange(total_samples) / fs
     # Check dimensions of the generated data
     # assert scaled_noise.shape == (n_channels, total_samples), "Incorrect dimensions for data"
 
     # Create channel names
     ch_names = create_channel_names(n_channels)
-
     return scaled_noise, time, ch_names
 
 
