@@ -1,3 +1,6 @@
+
+
+
 from __future__ import annotations
 
 from functools import partial
@@ -31,7 +34,7 @@ def bkapp(doc: Document, n: int, output_backend: str):
     run_button.on_click(run_callback)
 
     def zoom_callback(event):
-        # Zoom benchmarks times the render caused by this zoom.
+        # Zoom benchmark times the render caused by this zoom.
         p.x_range.start = 500
 
     zoom_button = Button(label="zoom")
@@ -40,9 +43,9 @@ def bkapp(doc: Document, n: int, output_backend: str):
     doc.add_root(column(p, row(run_button, zoom_button)))
 
 
-class TimeseriesLatency(Base):
+class TimeseriesBase(Base):
     params: tuple[list[int], list[str]] = (
-        [1_000, 10_000, 100_000, 1_000_000, 10_000_000],
+        [1_000, 10_000, 100_000, 1_000_000],
         ["canvas", "webgl"],
     )
     param_names: tuple[str] = ("n", "output_backend")
@@ -59,43 +62,25 @@ class TimeseriesLatency(Base):
         self.figure_id = None
         self.playwright_teardown()
 
+
+class TimeseriesLatency(TimeseriesBase):
+    """Example benchmark using Bokeh only, measuring the latency which is the
+    time taken to transfer data to the browser and render it. The browser and
+    Bokeh server are already running before the benchmark starts.
+    """
     def time_latency(self, n: int, output_backend: str) -> None:
-        button = self.page.get_by_role("button", name="run")
-        start_render_count = self.render_count(self.figure_id)
-        button.click()
-        while self.render_count(self.figure_id) == start_render_count:
-            self.page.wait_for_timeout(1)
+        self.click_button_and_wait_for_render("run", self.figure_id)
 
 
-class TimeseriesZoom(Base):
-    params: tuple[list[int], list[str]] = (
-        [1_000, 10_000, 100_000, 1_000_000, 10_000_000],
-        ["canvas", "webgl"],
-    )
-    param_names: tuple[str] = ("n", "output_backend")
-
+class TimeseriesZoom(TimeseriesBase):
+    """Example benchmark using Bokeh only, measuring the time taken for an
+    interactive render which is achieved here using by zooming the figure.
+    """
     def setup(self, n: int, output_backend: str) -> None:
-        bkapp_n = partial(bkapp, n=n, output_backend=output_backend)
-        self.playwright_setup(bkapp_n)
-
-        # There is only a single Bokeh figure in each benchmark so store its ID here rather than
-        # in the benchmark itself.
-        self.figure_id = self.current_figure_id()
+        super().setup(n, output_backend)
 
         # Render initial data set.
-        button = self.page.get_by_role("button", name="run")
-        start_render_count = self.render_count(self.figure_id)
-        button.click()
-        while self.render_count(self.figure_id) == start_render_count:
-            self.page.wait_for_timeout(1)
-
-    def teardown(self, n: int, output_backend: str) -> None:
-        self.figure_id = None
-        self.playwright_teardown()
+        self.click_button_and_wait_for_render("run", self.figure_id)
 
     def time_zoom(self, n: int, output_backend: str) -> None:
-        button = self.page.get_by_role("button", name="zoom")
-        start_render_count = self.render_count(self.figure_id)
-        button.click()
-        while self.render_count(self.figure_id) == start_render_count:
-            self.page.wait_for_timeout(1)
+        self.click_button_and_wait_for_render("zoom", self.figure_id)

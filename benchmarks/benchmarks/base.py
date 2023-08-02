@@ -43,6 +43,13 @@ class Base:
                     raise RuntimeError(f"Mismatch in render count: {count} != {expected_render_count}")
                 self._render_counts[figure_id] = count
 
+    def click_button_and_wait_for_render(self, button_name: str, figure_id: str) -> None:
+        button = self.page.get_by_role("button", name=button_name)
+        start_render_count = self.render_count(figure_id)
+        button.click()
+        while self.render_count(figure_id) == start_render_count:
+            self.page.wait_for_timeout(1)
+
     def current_figure_id(self) -> str:
         """Return the id of the currently displayed Bokeh figure.
 
