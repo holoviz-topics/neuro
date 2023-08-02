@@ -14,6 +14,10 @@ if TYPE_CHECKING:
 
 
 class Base:
+    # Force a single benchmark timing for each setup-teardown call, and no warmup required.
+    number = 1
+    warmup_time = 0
+
     def __init__(self, catch_console: bool = True):
         self._catch_console = catch_console
         self._port = 5006
@@ -82,6 +86,7 @@ class Base:
             # Wait a few milliseconds for emitted console messages to be handled before closing
             # browser. May need to increase this if Playwright complains that browser is closed.
             self.page.wait_for_timeout(10)
+            self._render_counts.clear()
 
         self._browser.close()
         self._server.stop()
