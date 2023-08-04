@@ -59,7 +59,7 @@ class Base:
         if len(sessions) != 1:
             raise RuntimeError(f"Expected a single session but have {len(sessions)}")
         doc = sessions[0].document
-        # This raises an error if more or less than one figure in the Bokeh document.
+        # This raises an error if more or fewer than one figure in the Bokeh document.
         figure = doc.select_one(dict(type=Plot))
         return figure.id
 

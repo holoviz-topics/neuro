@@ -1,6 +1,3 @@
-
-
-
 from __future__ import annotations
 
 from functools import partial
@@ -43,7 +40,7 @@ def bkapp(doc: Document, n: int, output_backend: str):
     doc.add_root(column(p, row(run_button, zoom_button)))
 
 
-class TimeseriesBase(Base):
+class BokehExampleBase(Base):
     params: tuple[list[int], list[str]] = (
         [1_000, 10_000, 100_000, 1_000_000],
         ["canvas", "webgl"],
@@ -63,7 +60,7 @@ class TimeseriesBase(Base):
         self.playwright_teardown()
 
 
-class TimeseriesLatency(TimeseriesBase):
+class BokehExampleLatency(BokehExampleBase):
     """Example benchmark using Bokeh only, measuring the latency which is the
     time taken to transfer data to the browser and render it. The browser and
     Bokeh server are already running before the benchmark starts.
@@ -72,7 +69,7 @@ class TimeseriesLatency(TimeseriesBase):
         self.click_button_and_wait_for_render("run", self.figure_id)
 
 
-class TimeseriesZoom(TimeseriesBase):
+class BokehExampleZoom(BokehExampleBase):
     """Example benchmark using Bokeh only, measuring the time taken for an
     interactive render which is achieved here using by zooming the figure.
     """
