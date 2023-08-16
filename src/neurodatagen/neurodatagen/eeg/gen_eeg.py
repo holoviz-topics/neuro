@@ -11,9 +11,10 @@ def generate_eeg_powerlaw(
     highpass: float = 2.0,
     exponent: float = -1,
     amplitude: float = 50.0,
+    channel_prefix: str = "EEG",
 ) -> tuple[np.ndarray, np.ndarray, list]:
     """
-    Generate synthetic EEG data as power law time series, with a specified exponent.
+    Generate synthetic EEG data as a power-law time series, with a specified exponent.
 
     Parameters
     ----------
@@ -29,6 +30,8 @@ def generate_eeg_powerlaw(
     amplitude (float, optional):
         Amplitude scaling factor for the generated EEG data. Defaults to
         50.0 microvolts.
+    channel_prefix (str, optional):
+        Prefix for the channel names. Defaults to 'EEG'.
 
     Returns
     -------
@@ -38,7 +41,7 @@ def generate_eeg_powerlaw(
     time (np.ndarray):
         Time array as a NumPy array of shape (total_samples,).
     ch_names (list):
-        List of strings of channel names like: EEG <Channel num>
+        List of strings of channel names like: '<channel_prefix> <Channel num>'
 
     """
 
@@ -73,10 +76,10 @@ def generate_eeg_powerlaw(
     # assert scaled_noise.shape == (n_channels, total_samples), "Incorrect dimensions for data"
 
     # Create channel names
-    ch_names = create_channel_names(n_channels)
+    ch_names = create_channel_names(n_channels, channel_prefix)
     return scaled_noise, time, ch_names
 
 
-def create_channel_names(n_channels: (int) = None) -> list[str]:
-    """Given number of channels, return list of str like 'EEG 1'"""
-    return [f"EEG {i+1}" for i in range(n_channels)]
+def create_channel_names(n_channels: int, prefix: str = "EEG") -> list[str]:
+    """Given the number of channels, return a list of strings like '<prefix> 1'"""
+    return [f"{prefix} {i+1}" for i in range(n_channels)]
