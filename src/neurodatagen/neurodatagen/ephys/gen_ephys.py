@@ -3,6 +3,63 @@ from __future__ import annotations
 from typing import Tuple
 import numpy as np
 
+from ..eeg.gen_eeg import generate_eeg_powerlaw
+
+def generate_lfp(
+    n_channels: int,
+    n_seconds: float,
+    fs: int,
+    highpass: float = 2.0,
+    exponent: float = -1,
+    amplitude: float = 50.0,
+    channel_prefix: str = ''
+) -> tuple[np.ndarray, np.ndarray, list]:
+    """
+    Generate synthetic Local Field Potential (LFP) data as a power-law time series, with a specified exponent.
+
+    Parameters
+    ----------
+    n_channels (int): Number of channels.
+    n_seconds (float): Duration of the data in seconds.
+    fs (int): Sampling rate of the data in Hz.
+    highpass (float, optional):
+        High-pass filter factor in Hz. Frequencies lower than this value
+        will be attenuated. Should be greater than 0. Defaults to 2.0.
+    exponent (float):
+        Power law exponent. Defaults to `-1`, producing pink noise; a
+        reasonable alternative is `-2`, producing brown noise.
+    amplitude (float, optional):
+        Amplitude scaling factor for the generated data. Defaults to
+        50.0 microvolts.
+    channel_prefix (str, optional):
+        Prefix for the channel names. Defaults to ''.
+
+    Returns
+    -------
+    data (np.ndarray):
+        Synthetic EEG data as a NumPy array of shape 
+        (n_channels, total_samples).
+    time (np.ndarray):
+        Time array as a NumPy array of shape (total_samples,).
+    ch_names (list):
+        List of strings of channel names like: '<channel_prefix> <Channel num>'
+
+    """
+    
+    # Call the EEG function but adapt it for LFP
+    times, sigs, ch_names = generate_eeg_powerlaw(
+        n_channels=n_channels,
+        n_seconds=n_seconds,
+        fs=fs,
+        highpass=highpass,
+        exponent=exponent,
+        amplitude=amplitude,
+        channel_prefix= '',  # Change the channel prefix to '' since LFP channels usually don't have a prefix
+        add_blink_artifacts=False  # Turn off blink artifacts
+    )
+    
+    return times, sigs, ch_names
+
 
 def generate_action_potential(
     t: np.ndarray, gaussian_std_dev: float = 0.1, decay_rate: float = 5.0
@@ -116,7 +173,7 @@ def generate_spike_timeseries(
     return spikes
 
 
-def generate_ephys_powerlaw(
+def generate_ephys(
     n_channels: int,
     n_seconds: float,
     fs: int = 30000,
