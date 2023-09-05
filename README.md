@@ -82,6 +82,61 @@ This repository contains developmental versions of workflows, which can be categ
   improvement ![status: idea](https://img.shields.io/badge/status-idea-blue)
 
 ---
+## Installation for individual workflows with Conda
+
+### Prerequisites
+Before installing the workflow environments, make sure you have Miniconda installed. If not, you can download and install it from the [official site]([https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/projects/miniconda/en/latest/index.html#quick-command-line-install)).
+
+### Initial Installation Steps
+
+1. **Clone the Repository**: Clone the `neuro` repository to your local machine.
+    ```bash
+    git clone https://github.com/holoviz-topics/neuro.git
+    ```
+
+2. **Navigate to Workflow**: Change to the directory of the workflow you're interested in.
+    ```bash
+    cd neuro/workflows/eeg_viewer
+    ```
+
+3. **Create Environment**: Use `conda` to create a new environment from the `environment.yml` file.
+    ```bash
+    conda env create -f environment.yml
+    ```
+
+4. **Activate Environment**: After the environment is created, activate it.
+    ```bash
+    conda activate eeg_viewer
+    ```
+
+Replace `eeg_viewer` with the appropriate workflow name for different workflows.
+
+
+### Updating Workflow Environments
+
+If you've already installed a workflow environment and the `environment.yml` file has been updated, follow these steps to update the environment:
+
+1. **Update Repository**: Pull the latest changes from the repository.
+    ```bash
+    git pull
+    ```
+
+2. **Navigate to Workflow**: Go to the directory of the workflow you're interested in.
+    ```bash
+    cd neuro/workflows/eeg_viewer
+    ```
+
+3. **Update Environment**: Update the existing Conda environment based on the latest `environment.yml` file.
+    ```bash
+    conda env update -f environment.yml --prune
+    ```
+
+The `--prune` option will remove packages from the environment not present in the updated `environment.yml` file.
+
+Replace `eeg_viewer` with the appropriate workflow name for different workflows.
+
+
+---
 ## Contributing
 
 - **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this 
