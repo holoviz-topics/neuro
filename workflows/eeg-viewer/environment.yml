@@ -2,8 +2,9 @@ name: neuro-eeg-viewer
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
-  - holoviews>=1.17
+  - python>3.9
+  - holoviews>=1.18
+  - bokeh
   - hvplot
   - panel
   - datashader
