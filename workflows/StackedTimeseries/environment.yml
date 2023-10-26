@@ -1,24 +1,24 @@
-name: neuro-eeg-viewer
+name: neuro-stackedtimeseries
 channels:
   - conda-forge
 dependencies:
-  - python>3.9
+  - python
   - holoviews>=1.18
-  - bokeh
+  - bokeh>=3.3
   - hvplot
   - panel
-  - datashader
+#  - datashader
   - numpy
   - pandas
   - xarray
   - ipykernel
   - mne
-  - neurodsp
+#  - neurodsp
   - jupyterlab
   - intake
   - zarr
   - kerchunk
   - pip
   - pip:
-    - -e ../../src/neurodatagen
-    - -e ../../src/hvneuro
+ #   - -e ../../src/neurodatagen
+ #   - -e ../../src/hvneuro

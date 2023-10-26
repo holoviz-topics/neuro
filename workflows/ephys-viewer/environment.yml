@@ -16,6 +16,7 @@ dependencies:
   - numcodecs
   - zarr
   - kerchunk
+  - h5py
   - pip
   - pip:
     - -e ../../src/neurodatagen
