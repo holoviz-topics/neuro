@@ -28,6 +28,10 @@ def pnapp(doc: Document, n: int, output_backend: str):
 
 
 class PanelHoloviewsExample(Base):
+    # Force a single benchmark timing for each setup-teardown call.
+    repeat = 1
+    rounds = 5
+
     params: tuple[list[int], list[str]] = (
         [1_000, 10_000, 100_000, 1_000_000],
         ["canvas", "webgl"],
