@@ -14,7 +14,6 @@ if TYPE_CHECKING:
 
 
 class Base:
-    # Force a single benchmark timing for each setup-teardown call, and no warmup required.
     number = 1
     warmup_time = 0
 
