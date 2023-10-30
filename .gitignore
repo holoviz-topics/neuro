@@ -142,3 +142,5 @@ dmypy.json
 
 # Benchmarks
 .asv/
+
+lfp.json
