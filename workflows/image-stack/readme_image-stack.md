@@ -1,10 +1,10 @@
-# Video Viewer
+# Image Stack Viewer (formerly video viewer)
 
 ![Status](https://img.shields.io/badge/status-in%20progress-orange)
 
 ## Summary
 ---
-The Video Viewer workflow will provide an efficient tool for visualizing Miniscope calcium imaging movies. It will incorporate the following key features:
+The Image Stack Viewer workflow will provide an efficient tool for visualizing Miniscope calcium imaging movies. It will incorporate the following key features:
 
 - **Handling large datasets:** Benchmarking and providing solutions for large data handling challenges to ensure smooth performance.
 - **Playback controls:** Utilizing the HoloViz Panel Player widget for easy navigation through the image stack.
@@ -17,11 +17,11 @@ The Video Viewer workflow will provide an efficient tool for visualizing Minisco
 
 ## Links:
 ---
-- [Workflow demo](./workflow_video-viewer.ipynb)
+- [Workflow demo](./workflow_image-stack.ipynb)
 
 - [Calcium Imaging notes](https://github.com/holoviz-topics/neuro/wiki/Calcium-Imaging-notes)
 
-- [All video-viewer workflow issues/PRs](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*video-viewer*%22). *(Bulleted links below for feature-specific tasks)*
+- [All image-stack/video-viewer workflow issues/PRs](https://github.com/orgs/holoviz-topics/projects/1/views/1?filterQuery=neuro-labels%3A%22*video-viewer*%22). *(Bulleted links below for feature-specific tasks)*
 
 ## Prioritized Tasks (Features/Bottlenecks)
 ---

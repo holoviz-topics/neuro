@@ -1,4 +1,4 @@
-name: neuro-video-viewer
+name: neuro-image-stack
 channels:
   - conda-forge
 dependencies:
