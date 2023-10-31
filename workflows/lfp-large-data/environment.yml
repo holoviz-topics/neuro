@@ -1,0 +1,18 @@
+name: lfp-large-data
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - bokeh
+  - dask
+  - datashader >=0.16
+  - fsspec
+  - h5py
+  - jupyterlab
+  - kerchunk
+  - ujson
+  - xarray
+  - zarr
+  - pip
+  - pip:
+    - allensdk
