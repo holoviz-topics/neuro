@@ -8,7 +8,7 @@ Our ultimate goal is to facilitate the creation of fully open, reproducible,
 OS-independent, browser-based workflows for biomedical research primarily using
 sustainable, domain-independent visualization tools. In support of this
 goal, this repository is the development ground for optimization and demonstration of
-HoloViz and Bokeh tools within the realm of neuroscience.
+[HoloViz](https://github.com/holoviz/) and [Bokeh](https://github.com/bokeh/bokeh) tools within the realm of neuroscience.
 
 <details>
 <summary> Urgent objectives: </summary>
