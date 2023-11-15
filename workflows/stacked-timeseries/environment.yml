@@ -1,24 +1,25 @@
-name: neuro-stackedtimeseries
+name: tmp-neuro-stackedtimeseries
 channels:
   - conda-forge
 dependencies:
   - python
-  - holoviews>=1.18
-  - bokeh>=3.3
+  - holoviews>=1.18.1
+  - bokeh>=3.3.1
   - hvplot
   - panel
 #  - datashader
   - numpy
   - pandas
-  - xarray
+#  - xarray
   - ipykernel
-  - mne
+#  - mne
 #  - neurodsp
   - jupyterlab
-  - intake
-  - zarr
-  - kerchunk
+#  - intake
+#  - zarr
+#  - kerchunk
   - pip
   - pip:
+    - holonote
  #   - -e ../../src/neurodatagen
  #   - -e ../../src/hvneuro
