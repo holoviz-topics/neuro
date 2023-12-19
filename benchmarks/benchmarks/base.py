@@ -6,12 +6,21 @@ from bokeh.models import Plot
 from bokeh.server.server import Server
 from playwright.sync_api import sync_playwright
 
+import time
+
+import re
+pattern = re.compile(r".*PlotView\._actual_paint (\w+) (\d+) (start|end)")
+
+LOG_TIMING = False # For validation. Set to True to print individual paint timings. Doesn't seem to be working yet.
+
+# import logging
+# logging.basicConfig(filename='benchmark.log', level=logging.INFO)
+# logger = logging.getLogger(__name__)
+
 if TYPE_CHECKING:
     from typing import Callable
-
     from bokeh.document import Document
     from playwright.sync_api import ConsoleMessage
-
 
 class Base:
     number = 1
@@ -19,34 +28,43 @@ class Base:
 
     def __init__(self, catch_console: bool = True):
         self._catch_console = catch_console
-        self._port = 5006
+        self._port = 5007
 
         # Dictionary of Bokeh figure ID to current render count.  Updated in _console_callback.
         # Do not read it directly, use render_count() function instead.
         self._render_counts: dict[str, int] = {}
 
-    def _console_callback(self, msg: ConsoleMessage) -> None:
-        if len(msg.args) != 4:
+    def _console_callback(self, msg: ConsoleMessage) -> None:       
+        match = pattern.search(msg.text)
+        if not match:
             return
-
-        msg, figure_id, count, start_or_end = [arg.json_value() for arg in msg.args]
-
-        if msg == "PlotView._actual_paint":
-            if start_or_end == "start":
-                # TODO: need to handle start of render if want to time a single render.
+        
+        figure_id, count, state = match.groups()
+        if state == "start":
+            if not LOG_TIMING:
                 pass
-            elif start_or_end == "end":
-                expected_render_count = self.render_count(figure_id) + 1
-                count = int(count)
-                if count != expected_render_count:
-                    raise RuntimeError(f"Mismatch in render count: {count} != {expected_render_count}")
-                self._render_counts[figure_id] = count
+            self.start_time = time.perf_counter()
+            self.start_count = f'{figure_id}:{count}'
+        elif state == "end":
+            expected_render_count = self.render_count(figure_id) + 1
+            count = int(count)
+            if count != expected_render_count:
+                raise RuntimeError(f"Mismatch in render count: {count} != {expected_render_count}")
+            self._render_counts[figure_id] = count
+
+            if LOG_TIMING:
+                end_time = time.perf_counter()
+                end_count = f'{figure_id}:{count}'
+                timing = f"START {self.start_count} ||| END {end_count}: {end_time - self.start_time}s"
+                print(timing) # TODO mismatch between what ASV reports and this timing.
+                # logger.info(timing) # logging doesn't seem to work with ASV
 
     def click_button_and_wait_for_render(self, button_name: str, figure_id: str) -> None:
         button = self.page.get_by_role("button", name=button_name)
-        start_render_count = self.render_count(figure_id)
+        last_render_count = self.render_count(figure_id)
+        # self.page.wait_for_timeout(self.warm_up_time)
         button.click()
-        while self.render_count(figure_id) == start_render_count:
+        while self.render_count(figure_id) == last_render_count:
             self.page.wait_for_timeout(1)
 
     def current_figure_id(self) -> str:
@@ -74,7 +92,7 @@ class Base:
         self._server = Server({'/': bokeh_doc}, port=self._port)
         self._server.start()
 
-        self._browser = playwright.chromium.launch(headless=True)
+        self._browser = playwright.chromium.launch(headless=False)
 
         self.page = self._browser.new_page()
         self.page.goto(f"http://localhost:{self._port}/")
@@ -87,6 +105,7 @@ class Base:
             self.page.wait_for_timeout(1)
 
     def playwright_teardown(self):
+        # self.page.wait_for_timeout(1) # debugging
         if self._catch_console:
             self.page.remove_listener("console", self._console_callback)
             # Wait a few milliseconds for emitted console messages to be handled before closing
