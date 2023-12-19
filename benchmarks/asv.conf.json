@@ -35,6 +35,7 @@
         "in-dir={env_dir} python -mpip install {wheel_file}",
         // Install bokeh from specific repo branch containing the console.log of render count
         "python -m pip install bokeh git+https://github.com/bokeh/bokeh.git@ianthomas23/log_render_count#egg=bokeh",
+        // "python -m pip install -e /Users/droumis/src/bokeh", // For dev, replace with your local path to bokeh
         // Install browsers for playwright
         "playwright install chromium"
     ],
@@ -102,8 +103,13 @@
     //     "env": {"ENV_VAR_1": ["val1", "val2"]},
     //     "env_nobuild": {"ENV_VAR_2": ["val3", null]},
     // },
-    "matrix": {
-        "playwright": []
+    "matrix": {``
+        "req": {
+            "playwright": [""]
+	},
+        "env": {
+            "BOKEH_LOG_LEVEL": ["trace"]
+        }
     },
 
     // Combinations of libraries/python versions can be excluded/included
