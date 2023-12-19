@@ -1,13 +1,26 @@
 from __future__ import annotations
 
+if __name__ == "__main__":
+    import bokeh
+    bokeh.settings.settings.log_level = "trace"
+
+    import sys
+    from pathlib import Path
+
+    script_directory = Path(__file__).parent
+    sys.path.append(str(script_directory))
+
+    from base import Base
+
+else:
+    from .base import Base
+
 from functools import partial
 from typing import TYPE_CHECKING
 
 from bokeh.models import Button, ColumnDataSource
 from bokeh.plotting import column, figure, row
 import numpy as np
-
-from .base import Base
 
 if TYPE_CHECKING:
     from bokeh.document import Document
@@ -56,6 +69,9 @@ def bkapp(doc: Document, n: int, output_backend: str):
 
 
 class BokehExampleBase(Base):
+    repeat = 1  # Force a single benchmark timing for each setup-teardown call
+    rounds = 5
+
     params: tuple[list[int], list[str]] = (
         [1_000, 10_000, 100_000, 1_000_000],
         ["canvas", "webgl"],
@@ -69,6 +85,7 @@ class BokehExampleBase(Base):
         # There is only a single Bokeh figure in each benchmark so store its ID here rather than
         # in the benchmark itself.
         self.figure_id = self.current_figure_id()
+        self.page.wait_for_timeout(1) # warmup
 
     def teardown(self, n: int, output_backend: str) -> None:
         self.figure_id = None
@@ -83,7 +100,6 @@ class BokehExampleLatency(BokehExampleBase):
     def time_latency(self, n: int, output_backend: str) -> None:
         self.click_button_and_wait_for_render("run", self.figure_id)
 
-
 class BokehExampleZoom(BokehExampleBase):
     """Example benchmark using Bokeh only, measuring the time taken for an
     interactive render which is achieved here using by zooming the figure.
@@ -96,3 +112,19 @@ class BokehExampleZoom(BokehExampleBase):
 
     def time_zoom(self, n: int, output_backend: str) -> None:
         self.click_button_and_wait_for_render("zoom", self.figure_id)
+
+
+if __name__ == "__main__":
+
+    n = 1000
+    backend = "canvas"
+
+    init_latency = BokehExampleLatency()
+    init_latency.setup(n, backend)
+    init_latency.time_latency(n, backend)
+    init_latency.teardown(n, backend)
+
+    zoom_latency = BokehExampleZoom()
+    zoom_latency.setup(n, backend)
+    zoom_latency.time_zoom(n, backend)
+    zoom_latency.teardown(n, backend)

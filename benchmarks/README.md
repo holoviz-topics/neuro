@@ -21,6 +21,9 @@ cd benchmarks
 asv run -e
 ```
 
+`-e` allows for stdout to be displayed.
+Use `-v` for more verbose output from asv.
+
 The first time this is run it creates a machine file to store information about your machine.  Then a virtual environment is created and each benchmark is run multiple times to obtain a statistically valid benchmark time.
 
 The virtual environment contains `hvneuro` and its dependencies as defined in the top-level `pyproject.toml` file. It also contains `playwright`, the latest version of `chromium` as installed by `playwright`, and a particular branch of `bokeh` that contains extra code to record when the canvas is rendered. The latter is compiled by source and extra dependencies may be required for this to work on all test machines (to be determined).
@@ -53,3 +56,26 @@ ASV configuration information is stored in `benchmarks/asv.conf.json`.  This inc
 ```
 "branches": ["main"],
 ```
+
+## Debugging
+Here are some thoughts on debugging benchmarks. So far when things go wrong it is usually due to communications or timeout issues, and everything just freezes making it difficult to debug. What I do is limit the set of `params` for the benchmark in question and turn off the browser `headless` mode, i.e. this change line in `base.py`:
+```python
+self._browser = playwright.chromium.launch(headless=True)
+```
+into
+```python
+self._browser = playwright.chromium.launch(headless=False)
+```
+Then run the benchmark in quick mode, e.g. something like `asv run -b Panel -e -q` and the browser will appear. If the benchmark is waiting for something to happen you can open the browser console to see what is going on. Sometimes adding extra timeouts to the benchmark helps, otherwise they can run too fast to really understand what is happening. 
+
+To add an extra timeout, include the following in the base class before the playwright teardown:
+```python
+def playwright_teardown(self):
+    self.page.wait_for_timeout(10000)
+```
+
+Futher, you may notices there is a lot of variation in timing.. You can record the individual timings using:
+`asv run -b time_zoom --record-samples`
+and then see them using something like:
+`asv show 0388952c --details`
+where the has comes from the output of `asv show`.
