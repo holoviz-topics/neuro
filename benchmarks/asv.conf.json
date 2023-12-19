@@ -103,7 +103,7 @@
     //     "env": {"ENV_VAR_1": ["val1", "val2"]},
     //     "env_nobuild": {"ENV_VAR_2": ["val3", null]},
     // },
-    "matrix": {``
+    "matrix": {
         "req": {
             "playwright": [""]
 	},
