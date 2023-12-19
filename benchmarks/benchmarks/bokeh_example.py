@@ -73,7 +73,7 @@ class BokehExampleBase(Base):
     rounds = 5
 
     params: tuple[list[int], list[str]] = (
-        [1_000],#, 10_000, 100_000, 1_000_000],
+        [1_000, 10_000, 100_000, 1_000_000],
         ["canvas", "webgl"],
     )
     param_names: tuple[str] = ("n", "output_backend")
