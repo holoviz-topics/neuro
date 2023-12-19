@@ -92,7 +92,7 @@ class Base:
         self._server = Server({'/': bokeh_doc}, port=self._port)
         self._server.start()
 
-        self._browser = playwright.chromium.launch(headless=False)
+        self._browser = playwright.chromium.launch(headless=True)
 
         self.page = self._browser.new_page()
         self.page.goto(f"http://localhost:{self._port}/")
