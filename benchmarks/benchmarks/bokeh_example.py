@@ -81,16 +81,13 @@ class BokehExampleBase(Base):
     def setup(self, n: int, output_backend: str) -> None:
         bkapp_n = partial(bkapp, n=n, output_backend=output_backend)
         self.playwright_setup(bkapp_n)
-
-        # There is only a single Bokeh figure in each benchmark so store its ID here rather than
-        # in the benchmark itself.
+        # If there is only a single Bokeh figure in each benchmark store its ID here
         self.figure_id = self.current_figure_id()
         self.page.wait_for_timeout(1) # warmup
 
     def teardown(self, n: int, output_backend: str) -> None:
         self.figure_id = None
         self.playwright_teardown()
-
 
 class BokehExampleLatency(BokehExampleBase):
     """Example benchmark using Bokeh only, measuring the latency which is the
@@ -103,7 +100,7 @@ class BokehExampleLatency(BokehExampleBase):
 class BokehExampleZoom(BokehExampleBase):
     """Example benchmark using Bokeh only, measuring the time taken for an
     interactive render which is achieved here using by zooming the figure.
-    """
+    """ 
     def setup(self, n: int, output_backend: str) -> None:
         super().setup(n, output_backend)
 
