@@ -144,3 +144,6 @@ dmypy.json
 .asv/
 
 lfp.json
+
+playwright*
+package*
