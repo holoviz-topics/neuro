@@ -1,0 +1,22 @@
+name: neuro-create-data
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - holoviews>=1.18.1
+  - bokeh>=3.3.1
+  - hvplot
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray
+  - ipykernel
+  - ffmpeg-python
+  - jupyterlab
+  - sparse
+  - zarr
+  - kerchunk
+  - pip
+  - pip:
+    - -e ../src/neurodatagen
