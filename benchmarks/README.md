@@ -58,7 +58,9 @@ ASV configuration information is stored in `benchmarks/asv.conf.json`.  This inc
 ```
 
 ## Debugging
-Here are some thoughts on debugging benchmarks. So far when things go wrong it is usually due to communications or timeout issues, and everything just freezes making it difficult to debug. What I do is limit the set of `params` for the benchmark in question and turn off the browser `headless` mode, i.e. this change line in `base.py`:
+Here are some thoughts on debugging benchmarks.
+---
+So far when things go wrong it is usually due to communications or timeout issues, and everything just freezes making it difficult to debug. What I do is limit the set of `params` for the benchmark in question and turn off the browser `headless` mode, i.e. this change line in `base.py`:
 ```python
 self._browser = playwright.chromium.launch(headless=True)
 ```
@@ -68,14 +70,25 @@ self._browser = playwright.chromium.launch(headless=False)
 ```
 Then run the benchmark in quick mode, e.g. something like `asv run -b Panel -e -q` and the browser will appear. If the benchmark is waiting for something to happen you can open the browser console to see what is going on. Sometimes adding extra timeouts to the benchmark helps, otherwise they can run too fast to really understand what is happening. 
 
-To add an extra timeout, include the following in the base class before the playwright teardown:
+---
+To add an extra timeout, include the following in the base class before the rest of the teardown:
 ```python
 def playwright_teardown(self):
     self.page.wait_for_timeout(10000)
 ```
 
+---
 Futher, you may notices there is a lot of variation in timing.. You can record the individual timings using:
 `asv run -b time_zoom --record-samples`
 and then see them using something like:
 `asv show 0388952c --details`
 where the has comes from the output of `asv show`.
+
+---
+If you are having issues debugging, you can proceed with the following steps:
+1. To check if the most basic playwright use with panel and bokeh works (without asv) run the `debug_minimal_examples.py` script. This script will open a couple browser windows for a minimal bokeh app and then a minimal holoviews+panel app. You should see data in each plot. This does not include interactive elements (button clicks) or reading of the console output.
+2. To check if the full playwright benchmarking infra works, along with interactive elements (button clicks), reading of the console output, directly run the `bokeh_example.py` script. Two browsers (benchmark tests/apps) will appear subsequently. In the first browser, when a specific console message is received for the initial actual_paint, the populating of data into plot will be automatically triggered. The painting of this data is the target of the benchmark. In subsequent browser, the data will display and then zoom event will be triggered. The zoom interaction is the target of the second benchmark.
+3. If #2 works for bokeh, proceed to run `panel_holoviews_examples.py`, which does something very similar, but using panel and holoviews.
+
+---
+If you change something about the hvneuro's `pyproject.toml`, the easiest thing is to just delete the .asv and have the environement rebuilt the next time you run asv (i.e. `asv run -e -b Bokeh -q`).
