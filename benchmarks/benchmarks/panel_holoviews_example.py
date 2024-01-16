@@ -1,5 +1,20 @@
 from __future__ import annotations
 
+if __name__ == "__main__":
+
+    import bokeh
+    bokeh.settings.settings.log_level = "trace"
+
+    import sys
+    from pathlib import Path
+
+    script_directory = Path(__file__).parent
+    sys.path.append(str(script_directory))
+
+    from base import Base
+else:
+    from .base import Base
+
 from functools import partial
 from typing import TYPE_CHECKING
 
@@ -7,12 +22,11 @@ import holoviews as hv
 import numpy as np
 import panel as pn
 
-from .base import Base
-
 if TYPE_CHECKING:
     from bokeh.document import Document
 
 def pnapp(doc: Document, n: int, output_backend: str):
+
     hv.renderer('bokeh').webgl = (output_backend == "webgl")
     x = np.linspace(0, 1, n)
     y = np.random.default_rng(8343).uniform(size=n)
@@ -41,13 +55,12 @@ def pnapp(doc: Document, n: int, output_backend: str):
                                    run=run_button,
                                    zoom=zoom_button))
 
-    app = pn.Column(dynmap, pn.Row(run_button, zoom_button))
-
-    doc.add_root(app.get_root())
+    doc.add_root(pn.Column(dynmap, pn.Row(run_button, zoom_button)).get_root(doc))
 
 class PanelHoloviewsExampleBase(Base):
     repeat = 1 # Force a single benchmark timing for each setup-teardown call.
-    rounds = 5
+    number = 1 # Force a single benchmark timing for each setup-teardown call.
+    rounds = 2
 
     params: tuple[list[int], list[str]] = (
         [1_000, 10_000, 100_000, 1_000_000],
@@ -59,8 +72,8 @@ class PanelHoloviewsExampleBase(Base):
         pnapp_n = partial(pnapp, n=n, output_backend=output_backend)
         self.playwright_setup(pnapp_n)
 
-        # There is only a single Bokeh figure in each benchmark so store its ID here rather than
-        # in the benchmark itself.
+        # There is only a single figure in this benchmark and it's using dynamic map 
+        # so we can store its ID here
         self.figure_id = self.current_figure_id()
         self.page.wait_for_timeout(10) # warmup
 
@@ -88,3 +101,19 @@ class PanelHoloviewsExampleZoom(PanelHoloviewsExampleBase):
 
     def time_zoom(self, n: int, output_backend: str) -> None:
         self.click_button_and_wait_for_render("zoom", self.figure_id)
+
+
+if __name__ == "__main__":
+
+    n = 1000
+    backend = "webgl"
+
+    init_latency = PanelHoloviewsExampleLatency()
+    init_latency.setup(n, backend)
+    init_latency.time_latency(n, backend)
+    init_latency.teardown(n, backend)
+
+    zoom_latency = PanelHoloviewsExampleZoom()
+    zoom_latency.setup(n, backend)
+    zoom_latency.time_zoom(n, backend)
+    zoom_latency.teardown(n, backend)
