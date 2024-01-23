@@ -12,7 +12,9 @@ def generate_eeg_powerlaw(
     exponent: float = -1,
     amplitude: float = 50.0,
     channel_prefix: str = "EEG",
-    add_blink_artifacts: bool = True
+    add_blink_artifacts: bool = True,
+    correlated_noise_scale: float = 0.1,
+    blink_scale: float = 0.05,
 ) -> tuple[np.ndarray, np.ndarray, list]:
     """
     Generate synthetic EEG data as a power-law time series, with a specified exponent.
@@ -33,6 +35,12 @@ def generate_eeg_powerlaw(
         50.0 microvolts.
     channel_prefix (str, optional):
         Prefix for the channel names. Defaults to 'EEG'.
+    add_blink_artifacts (bool, optional):
+        Whether to add blink artifacts to the generated data. Defaults to True.
+    correlated_noise_scale (float, optional):
+        Scale factor for the correlated noise. Defaults to 0.2.
+    blink_scale (float, optional):
+        Scale factor for the blink artifacts. Defaults to 0.05.
 
     Returns
     -------
@@ -59,7 +67,7 @@ def generate_eeg_powerlaw(
     # Add channel correlations
     cov_matrix = np.eye(n_channels) + 0.5  # Identity matrix with some weighted correlation
     correlated_noise = np.random.multivariate_normal(np.zeros(n_channels), cov_matrix, size=total_samples).T
-    correlated_noise *= amplitude / .1  # Scale the correlated noise
+    correlated_noise *= amplitude / correlated_noise_scale  # Scale the correlated noise
     scaled_noise += correlated_noise
 
     # Add blink artifacts
@@ -70,8 +78,11 @@ def generate_eeg_powerlaw(
         for i in blink_times:
             blink_samples = np.random.normal(size=fs//10)  # Blink lasts 100 ms
             blink_samples *= np.hanning(len(blink_samples))  # Taper blink onset/offset
-            blink_samples *= amplitude / .04  # scaled by amplitude
-            scaled_noise[0:n_channels//4, i:i + len(blink_samples)] += blink_samples # apply to a quart of the channels
+            blink_samples *= amplitude / blink_scale  # scaled by amplitude
+            # pick a random half of the channels
+            n_channels_to_blink = np.random.choice(n_channels, int(n_channels/2), replace=False)
+            
+            scaled_noise[n_channels_to_blink, i:i + len(blink_samples)] += blink_samples # apply to a quarter of the channels
 
     time = np.arange(total_samples) / fs
     # Check dimensions of the generated data

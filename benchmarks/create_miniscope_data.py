@@ -1,6 +1,6 @@
 # Create and save datasets for benchmarking
 
-# Use env: create_data_env.yml
+# Use env: create_miniscope_data_env.yml
 
 # %%
 from neurodatagen.ca_imaging import simulate_miniscope_data

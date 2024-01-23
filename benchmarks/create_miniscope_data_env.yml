@@ -1,4 +1,4 @@
-name: neuro-create-data
+name: neuro-create-miniscope-data
 channels:
   - conda-forge
 dependencies:
