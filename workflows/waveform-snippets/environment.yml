@@ -1,0 +1,15 @@
+name: neuro-waveform
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - holoviews
+  - hvplot
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray
+  - ipykernel
+  - jupyterlab
+  - pyarrow
