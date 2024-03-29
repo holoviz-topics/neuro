@@ -7,11 +7,10 @@ dependencies:
   - hvplot
   - panel
   - datashader
+  - dask
   - numpy
   - pandas
   - xarray
   - ipykernel
   - jupyterlab
-  - pip
-  - pip:
-    - -e ../../src/neurodatagen
+  - pyarrow
