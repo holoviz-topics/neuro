@@ -1,0 +1,10 @@
+name: neuro-neuroglancer-nb
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - panel
+  - ipykernel
+  - jupyterlab
+  - pip:
+    - neuroglancer
