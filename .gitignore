@@ -133,6 +133,8 @@ dmypy.json
 # data
 **/*.mp4
 **/*.avi
+**/*.zarr
+**/*.db
 
 **/data/*
 
@@ -147,3 +149,5 @@ lfp.json
 
 playwright*
 package*
+
+.idea
