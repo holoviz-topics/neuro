@@ -1,0 +1,24 @@
+name: neuro-multi-chan
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - holoviews>=1.18.1
+  - bokeh>=3.3.1
+  - hvplot
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray
+  - ipykernel
+  - mne
+  - jupyterlab
+  - zarr
+  - kerchunk
+  - pyarrow
+  - dask
+  - jupyter_bokeh
+  - pip
+  - pip:
+    - holonote
