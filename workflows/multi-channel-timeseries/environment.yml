@@ -17,6 +17,8 @@ dependencies:
   - zarr
   - kerchunk
   - pyarrow
+  - dask
+  - jupyter_bokeh
   - pip
   - pip:
     - holonote
