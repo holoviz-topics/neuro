@@ -12,13 +12,16 @@ dependencies:
   - pandas
   - xarray
   - ipykernel
-  - mne
   - jupyterlab
   - zarr
   - kerchunk
   - pyarrow
   - dask
   - jupyter_bokeh
+  - h5py
   - pip
   - pip:
     - holonote
+    - ndpyramid
+    - tsdownsample
+    - mne
