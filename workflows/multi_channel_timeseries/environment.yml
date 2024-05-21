@@ -1,4 +1,4 @@
-name: neuro-multi-chan
+name: neuro-multi-chan-ts
 channels:
   - conda-forge
 dependencies:
