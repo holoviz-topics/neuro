@@ -1,9 +1,9 @@
-name: neuro-multi-chan-ts
+name: tmp_neuro-multi-chan-ts
 channels:
   - conda-forge
 dependencies:
   - python
-  - holoviews>=1.18.1
+  - holoviews>=1.19.0
   - bokeh>=3.3.1
   - hvplot
   - panel
@@ -25,3 +25,4 @@ dependencies:
     - ndpyramid==0.2.0
     - tsdownsample
     - mne
+    - wget
