@@ -153,3 +153,5 @@ package*
 .idea
 
 scratch
+
+**/neuro.code-workspace
