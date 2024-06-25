@@ -1,19 +1,20 @@
-name: neuro-image-stack
+name: neuro-deep-image-stack
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
-  - holoviews
+  - python
+  - holoviews>=1.19.0 # for wide df handling, scalebars, etc
   - hvplot
   - panel
   - datashader
+  - dask
+  - zarr
   - numpy
   - pandas
-  - xarray
+  - xarray>=2024.5.0
   - ipykernel
   - ffmpeg-python
   - jupyterlab
   - sparse
-  - pip
   - pip:
-    - -e ../../src/neurodatagen
+    - holonote
