@@ -1,0 +1,20 @@
+name: neuro-stream-ts
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - holoviews>=1.19.0
+  - bokeh>=3.3.1
+  - hvplot
+  - panel
+  - datashader
+  - numpy
+  - pandas
+  - xarray>=2024.5.0
+  - ipykernel
+  - jupyterlab
+  - jupyter_bokeh
+  - pip
+  - pip:
+    - holonote
+    - tsdownsample>=0.1.3
