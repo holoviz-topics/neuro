@@ -1,6 +1,7 @@
 # [HoloViz+Bokeh for Neuroscience](https://github.com/holoviz-topics/neuro)
 
-> :warning: This work is in early development and changing rapidly. It is not ready for scientific use. :warning:
+> [!WARNING] 
+> This is a development space and changing rapidly.
 
 ## Why does Neuroscience need HoloViz+Bokeh?
 
