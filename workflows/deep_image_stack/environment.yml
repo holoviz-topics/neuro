@@ -16,5 +16,6 @@ dependencies:
   - ffmpeg-python
   - jupyterlab
   - sparse
+  - pip
   - pip:
     - holonote
