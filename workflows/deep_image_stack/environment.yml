@@ -1,9 +1,9 @@
-name: neuro-deep-image-stack
+name: czi-deep-image-stack
 channels:
   - conda-forge
 dependencies:
-  - python
-  - holoviews>=1.19.0 # for wide df handling, scalebars, etc
+  - python=3.12
+  - holoviews
   - hvplot
   - panel
   - datashader
@@ -13,9 +13,9 @@ dependencies:
   - pandas
   - xarray>=2024.5.0
   - ipykernel
-  - ffmpeg-python
   - jupyterlab
-  - sparse
+  - wget
+  - aiohttp
   - pip
   - pip:
     - holonote
