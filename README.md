@@ -1,12 +1,14 @@
 # [HoloViz+Bokeh for Neuroscience](https://github.com/holoviz-topics/neuro)
 
-> [!WARNING] 
+> [!WARNING]
 > This repository is a development, ideation, and archival space.
-> For the latest working examples, please see https://examples.holoviz.org/gallery/neuroscience
+
+> [!WARNING]
+> Users, to run the latest workflow notebooks, please go [here](https://examples.holoviz.org/gallery/neuroscience), choose a workflow, download the project, and follow the [instructions](https://examples.holoviz.org/getting_started.html).
 
 
-Read about progress on our [Blog](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)!
 ![https://blog.holoviz.org/posts/czi_r5/](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)
+Read about progress on our [Blog](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)!
 
 ## Why does Neuroscience need HoloViz+Bokeh?
 
