@@ -1,12 +1,16 @@
 # [HoloViz+Bokeh for Neuroscience](https://github.com/holoviz-topics/neuro)
 
 > [!WARNING] 
-> This is a development space and changing rapidly.
+> This repository is a development, ideation, and archival space.
+> For the latest working examples, please see https://examples.holoviz.org/gallery/neuroscience
+
+
+Read about progress on our [Blog](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)!
+![https://blog.holoviz.org/posts/czi_r5/](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)
 
 ## Why does Neuroscience need HoloViz+Bokeh?
 
 We hypothesize the process of science stands to benefit from having the option to suddenly become interactive and shareable - allowing for the poking or plucking, pushing or pulling, drilling in or out, grouping or separating, and sending or receiving of what would otherwise be a static snapshot of the data. The combined use of HoloViz and Bokeh tools could provide the interactivity, shareability, and scalability needed to support research as a collective action rather than a collection of solitary observations.
-
 
 ### What is the purpose of this GitHub repository?
 
@@ -16,50 +20,45 @@ sustainable, domain-independent visualization tools. In support of this
 goal, this repository is the **development ground for optimization of
 [HoloViz](https://github.com/holoviz/) and [Bokeh](https://github.com/bokeh/bokeh) tools within the realm of neuroscience.**
 
-**Specific repo objectives:**
+**Specific Repo objectives:**
   
 - **Workflow Development:** Host the development versions of workflows, facilitating consistency and code sharing across them.
 - **Collaboration Hub:** Foster collaborative efforts between the developer teams and scientific collaborators outside these groups - aiming to effectively tailor development to specific requirements of the neuroscience community.
-- **Project Management:** Track ideas, feedback, requirements, specifications, issues, requests, topic research, and progress in the associated [Project Board](https://github.com/orgs/holoviz-topics/projects/1) and [Meeting Notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes).
+- **Project Management:** Track ideas, feedback, requirements, specifications, issues, requests, topic research, and progress.
 - **Host Domain-Specific Scripts:** For instance, simulated data generators.
 - **Temporarily Host Benchmark Tooling:** Eventually, to be be migrated to a dedicated, domain-independent repository.
 
-### What are workflows?
-
-This repository contains developmental versions of workflows, which can be loosely categorized into two types: **generalized** and **specialized**. Generalized workflows aim to be broadly applicable and primarily utilize domain-independent [Pandata](https://github.com/panstacks/pandata) tools such as Numpy, Pandas, Xarray, SciPy, etc. These generalized workflows serve as the foundational building blocks for specialized workflows. Specialized workflows are designed to cater to specific contexts and have no limitations on the use of domain-specific tools.
-
-## **Generalized Workflows in Development**:
+## **Workflows**:
 
 | Title | Example Modality | Thumbnail | Info & Links | Description |
 | --- | --- | --- | --- | --- |
-| Multi-Channel Timeseries | eeg, ephys | <a href="./workflows/multi_channel_timeseries/thumbnails/index.png"><img src="./workflows/multi_channel_timeseries/thumbnails/index.png" alt="Multi-Channel Timeseries" width="100"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [workflow](./workflows/multi_channel_timeseries/index.ipynb) | Synchronized examination of stacked time-series with large data handling, scale bar, annotations, minimap, and signal grouping.
-| Deep Image Stack | miniscope imaging | <a href="./workflows/deep_image_stack/assets/deep_image_stack_square.png"><img src="./workflows/deep_image_stack/assets/deep_image_stack_square.png" alt="Video Viewer" width="100"></a> | :warning: ![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [workflow](./workflows/deep_image_stack/workflow_deep-image-stack.ipynb) | Efficient visualization of deep 2D calcium imaging movies with, playback controls, 2D annotation, scale bar, time views, intensity histogram, and summary statistics. |
-| Waveform | ephys | <a href="./workflows/waveform_snippets/assets/230524_waveform.png"><img src="./workflows/waveform_snippets/assets/230524_waveform.png" alt="Waveform" width="100"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [workflow](./workflows/waveform_snippets/workflow_waveform.ipynb) | Oscilloscope-style display of action potential waveform snippets |
-| Spike Raster | ephys | <a href="./workflows/spike_raster/assets/230524_spike-raster.png"><img src="./workflows/spike_raster/assets/230524_spike-raster.png" alt="Spike Raster" width="100"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [workflow](./workflows/spike-raster/workflow_spike-raster.ipynb) | Efficient visualization of large-scale neuronal spike time data, with a simple API, aggregate views of spike counts, and spike-level metadata management |
+| Multi-Channel Timeseries | eeg, ephys | <a href="https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/thumbnails/index.png"><img src="https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/thumbnails/index.png" alt="Multi-Channel Timeseries" width="300"></a> | [website](https://examples.holoviz.org/gallery/multichannel_timeseries/0_multichan.html), [notebook](https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/0_multichan.ipynb) | Synchronized examination of stacked time-series with large data handling, scale bar, annotations, minimap, and signal grouping.
+| Multi-Channel Timeseries for Large Data | eeg, ephys | <a href="https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/thumbnails/large_multichan.png"><img src="https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/thumbnails/large_multichan.png" alt="Multi-Channel Timeseries" width="300"></a> | [website](https://examples.holoviz.org/gallery/multichannel_timeseries/1_large_multichan.html), [notebook](https://github.com/holoviz-topics/examples/blob/main/multichannel_timeseries/1_large_multichan.ipynb) | For timeseries datasets larger than available RAM. Utilizes a multi-resolution data-pyramid approach.
+| Time Lapse Microscopy | miniscope imaging | <a href="https://github.com/holoviz-topics/examples/blob/main/timelapse_microscopy/thumbnails/timelapse_microscopy.png"><img src="https://github.com/holoviz-topics/examples/blob/main/timelapse_microscopy/thumbnails/timelapse_microscopy.png" alt="Time Lapse Microscopy" width="300"></a> | [website](https://examples.holoviz.org/gallery/timelapse_microscopy/timelapse_microscopy.html), [notebook](https://github.com/holoviz-topics/examples/blob/main/timelapse_microscopy/timelapse_microscopy.ipynb) | Efficient visualization of deep 2D calcium imaging movies with, playback controls, 2D annotation, scale bar, and linked time views. |
+| Volumetric Imaging | electron microscopy, histology | <a href="https://github.com/holoviz-topics/examples/blob/main/volumetric_imaging/thumbnails/volumetric_imaging.png"><img src="https://github.com/holoviz-topics/examples/blob/main/volumetric_imaging/thumbnails/volumetric_imaging.png" alt="Neuroglancer Notebook" width="300"></a> | [website](https://examples.holoviz.org/gallery/volumetric_imaging/volumetric_imaging.html), [notebook](https://github.com/holoviz-topics/examples/blob/main/volumetric_imaging/volumetric_imaging.ipynb) | Notebook-based workflow for visualizing 3D volumetric data in a [Neuroglancer](https://github.com/google/neuroglancer?tab=readme-ov-file) application|
+| Streaming Timeseries | eeg, ephys | <a href="https://github.com/holoviz-topics/examples/blob/main/streaming_timeseries/thumbnails/streaming_timeseries.png"><img src="https://github.com/holoviz-topics/examples/blob/main/streaming_timeseries/thumbnails/streaming_timeseries.png" alt="Neuroglancer Notebook" width="300"></a> | [website](https://examples.holoviz.org/gallery/streaming_timeseries/streaming_timeseries.html), [notebook](https://github.com/holoviz-topics/examples/blob/main/streaming_timeseries/streaming_timeseries.ipynb) | Stream live from Lab Streaming Layer (LSL) data sources|
 
-- ![status: todo](https://img.shields.io/badge/status-todo-purple) Streaming data - extend the ephys, eeg, and/or video viewer workflows to
-  display live streaming data.
-- ![status: idea](https://img.shields.io/badge/status-idea-blue) Multimodal - visualizing and aligning ca-imaging with simultaneously recorded (but
-  differently sampled) timeseries like  EEG, EMG, and/or behavior. Alternatively,
-  visualizing behavioral video (eye tracking, maze running) with timeseries data.
-- ![status: idea](https://img.shields.io/badge/status-idea-blue) Linked electrode-array layout
+--- 
 
-## **Specialized Workflows in Development**:
-
+## **Workflows planned or in development**
 | Title | Example Modality | Thumbnail | Info & Links | Description |
 | --- | --- | --- | --- | --- |
-| Neuroglancer notebook | electron microscopy, histology | <a href="./workflows/neuroglancer_notebook/assets/20240612_neuroglancerNB.png"><img src="./workflows/neuroglancer_notebook/assets/20240612_neuroglancerNB.png" alt="Neuroglancer Notebook" width="100"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br> [workflow](./workflows/neuroglancer_notebook/neuroglancer-nb-workflow.ipynb) | Notebook-based workflow for visualizing 3D volumetric data in a [Neuroglancer](https://github.com/google/neuroglancer?tab=readme-ov-file) application|
+| Waveform | ephys | <a href="./workflows/waveform_snippets/workflow_waveform.ipynb"><img src="./workflows/waveform_snippets/assets/230524_waveform.png" alt="Waveform" width="300"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br>| Oscilloscope-style display of action potential waveform snippets |
+| Spike Raster | ephys | <a href="./workflows/spike-raster/workflow_spike-raster.ipynb"><img src="./workflows/spike_raster/assets/230524_spike-raster.png" alt="Spike Raster" width="300"></a> | :warning:![Status](https://img.shields.io/badge/status-in%20progress-orange) <br>| Efficient visualization of large-scale neuronal spike time data, with a simple API, aggregate views of spike counts, and spike-level metadata management |
 
+
+## **Wishlist Workflows**:
+- ![status: idea](https://img.shields.io/badge/status-idea-blue) Multimodal - Neural imaging, timeseries, and behavior.
 - ![status: idea](https://img.shields.io/badge/status-idea-blue) Spike Motif
 - ![status: idea](https://img.shields.io/badge/status-idea-blue) MNE integration
 - ![status: idea](https://img.shields.io/badge/status-idea-blue) Minian CNMF Temporal update parameter exploration app long timeseries
-  improvement
-workflows/neuroglancer_notebook/assets/20240612_neuroglancerNB.png
+- ![status: idea](https://img.shields.io/badge/status-idea-blue) Linked electrode-array layout
 
 ## Dissemination
-- Workflows will be shared with the broader scientific community as they are ready. The target date for a first round of workflows is the end of 2024. Completed workflows will be listed on [examples.holoviz.org](https://examples.holoviz.org/gallery/index.html), while select aspects will also go into the relevant Bokeh and HoloViz documentation pages.
-- Workflow progress will be presented at the [CZI open science](https://chanzuckerberg.com/science/programs-resources/open-science/) conference in Boston, MA in June 2024. 
-- If you have ideas for where our workflows might be cross-linked of hosted, please reach out! We would love it if there was also a central place for bioscience workflows, like the Geoscience community has with [Project Pythia](https://projectpythia.org/).
+- Workflows will be shared with the broader scientific community as they are ready. The first round of workflows were released at the end of 2024. Completed workflows will be listed on the [HoloViz Examples Gallery](https://examples.holoviz.org/gallery/neuroscience.html), while select aspects will also go into the relevant Bokeh and HoloViz documentation pages.
+- Workflow progress was be presented at the [CZI open science](https://chanzuckerberg.com/science/programs-resources/open-science/) conference in Boston, MA in June 2024. 
+- If you have ideas for where our workflows could be promoted, please reach out! We would love it if there was also a central place for bioscience workflows, like the Geoscience community has with [Project Pythia](https://projectpythia.org/).
+- Read about progress on our [Blog](https://github.com/holoviz-dev/blog/blob/main/posts/czi_r5/images/czi_r5.png)!
 
 ## Get Involved
 - We are actively looking for opportunities to deliver tutorials, workshops, or other educational resources to help researchers in underrepresented communities effectively utilize our tools. Reach out on [Discord](https://discord.gg/rb6gPXbdAr) if you want to brainstorm some ideas!
@@ -138,14 +137,9 @@ The `--prune` option will remove packages from the environment not present in th
 - **Task Management:** As workflows are developed and honed, performance and UI bottlenecks will be identified and addressed. Some improvements for the workflows themselves will be within this repo, but many improvements will be in the appropriate underlying libraries within the [HoloViz](https://github.com/holoviz/), [Bokeh](https://github.com/bokeh), or other GitHub Organizations. We will do our best to track the disparate tasks related to these efforts into this 
 [project board](https://github.com/orgs/holoviz-topics/projects/1).
 - **Communication:** 
-  - Meeting minutes: Logged in the
-  [Wiki > Meeting Notes](https://github.com/holoviz-topics/neuro/wiki/Meeting-Notes) whenever possible.
   - [HoloViz Discord #neuro channel](https://discord.gg/X6Eq9CvZZn) for real-time chat (if archived, post on the General HoloViz Discord channel)
   - [holoviz-topics/neuro GitHub repo issue
     tracker](https://github.com/holoviz-topics/neuro/issues)
-- **Specifications and Research:** The [Wiki](https://github.com/holoviz-topics/neuro/wiki) has some data specifications and modality notes.
-- **Data Generation:** To assist the development using real data, some workflows utilize simple data generators to help benchmark across data and parameter space. As the data generators/simulators can be useful to multiple workflows, they are kept as a separate module ([`/src/neurodatagen`](./src/neurodatagen)).
-- **Visualization source code:** If there is visualization code or utilities that we want to live separate from the individual workflows, we can store them in [`/src/hvneuro`](./src/hvneuro) for now. However, this should be considered a temporary space until the code can be incorporated into existing libraries, or live in particular workflows.
 - **Repo Structure and dev patterns:** 
     ```
     /workflows
@@ -159,4 +153,3 @@ The `--prune` option will remove packages from the environment not present in th
   - Use `readme_<workflow>.md` for any essential workflow-specific info or links.
   - Maintain `workflow_<workflow>.ipynb` as the latest version of the workflow.
   - Each workflow should have an `environment.yml` with which to create a conda env
-  - The `dev` dir in each workflow is scratch space. There is no expectation that anything here is maintained.
